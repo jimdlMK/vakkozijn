@@ -1,0 +1,31 @@
+.mk-nav-main {
+    .menu-hoofdmenu-container {
+        #menu-hoofdmenu {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            justify-content: end;
+            gap: 20px;
+            li {
+                &::marker {
+                    content: "";
+                    display: none;
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                a {
+                    color: $font-color-normal;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .mk-nav-main {
+        display: none;
+    }
+}
