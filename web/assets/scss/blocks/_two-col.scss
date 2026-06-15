@@ -19,13 +19,18 @@
     &--ratio-60-40 .mk-two-col__inner { grid-template-columns: 3fr 2fr; }
     &--ratio-40-60 .mk-two-col__inner { grid-template-columns: 2fr 3fr; }
 
-    // â”€â”€â”€ Kolom â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ─── Kolom ──────────────────────────────────────────────────────────────────
     &__col {
         display: flex;
         flex-direction: column;
+
+        // TOEGEVOEGD: Zorgt dat de 2e kolom de volledige hoogte pakt als we verticaal willen centreren
+        &--stretch {
+            align-self: stretch;
+        }
     }
 
-    // â”€â”€â”€ Slots â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ─── Slots ──────────────────────────────────────────────────────────────────
     &__slot {
         & + & {
             margin-top: 24px;
@@ -52,6 +57,13 @@
             gap: 24px;
             justify-content: flex-start;
             margin-top: 80px;
+
+            // TOEGEVOEGD: Horizontaal en verticaal centreren
+            &.is-centered {
+                justify-content: center;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
         }
 
         &--knop {

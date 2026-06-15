@@ -3,10 +3,8 @@ $ratio      = get_field('tc_ratio') ?: '50-50';
 $background = get_field('tc_background') ?: 'wit';
 $img_uri    = get_stylesheet_directory_uri() . '/dist/images';
 
-
 // Vang de class op die je bij 'Geavanceerd' invult (standaard leeg als je niks invult)
 $custom_class = !empty($block['className']) ? $block['className'] : '';
-
 
 $cols = [
     [
@@ -40,14 +38,32 @@ $block_classes = implode(' ', array_filter([
 
 <section class=" <?php echo esc_attr($custom_class); ?> <?php echo esc_attr($block_classes); ?>">
     <div class="mk-two-col__inner">
-        <?php foreach ($cols as $col) : ?>
-        <div class="mk-two-col__col">
+        <?php foreach ($cols as $i => $col) : ?>
+        <?php 
+            // Check of we in de 2e kolom zitten en er exact 2 partners zijn
+            $is_col_2 = ($i === 1);
+            $has_two_partners = (!empty($col['partners']) && count($col['partners']) === 2);
+            
+            $col_classes = "mk-two-col__col";
+            if ($is_col_2 && $has_two_partners) {
+                $col_classes .= " mk-two-col__col--stretch";
+            }
+        ?>
+        <div class="<?php echo esc_attr($col_classes); ?>">
 
             <?php if ( ! empty($col['title']) ) :
                 $tag = esc_attr($col['title_level']);
             ?>
             <div class="mk-two-col__slot mk-two-col__slot--title">
                 <<?php echo $tag; ?> class="mk-two-col__title"><?php echo esc_html($col['title']); ?></<?php echo $tag; ?>>
+            </div>
+            
+            <?php // TOEGEVOEGD: Onzichtbare dummy-titel in kolom 2 als er tekst is, om hoogte gelijk te trekken aan kolom 1
+            elseif ( $is_col_2 && empty($col['title']) && !empty($cols[0]['title']) && !empty($col['tekst']) && !empty($cols[0]['tekst']) ) : 
+                $tag_c1 = esc_attr($cols[0]['title_level']);
+            ?>
+            <div class="mk-two-col__slot mk-two-col__slot--title" style="visibility: hidden; pointer-events: none;" aria-hidden="true">
+                <<?php echo $tag_c1; ?> class="mk-two-col__title"><?php echo esc_html($cols[0]['title']); ?></<?php echo $tag_c1; ?>>
             </div>
             <?php endif; ?>
 
@@ -70,8 +86,14 @@ $block_classes = implode(' ', array_filter([
             </div>
             <?php endif; ?>
 
-            <?php if ( ! empty($col['partners']) ) : ?>
-            <div class="mk-two-col__slot mk-two-col__slot--partners">
+            <?php if ( ! empty($col['partners']) ) : 
+                // TOEGEVOEGD: Voeg is-centered toe als col 2 exact 2 partners heeft
+                $partners_class = "mk-two-col__slot mk-two-col__slot--partners";
+                if ($is_col_2 && $has_two_partners) {
+                    $partners_class .= " is-centered";
+                }
+            ?>
+            <div class="<?php echo esc_attr($partners_class); ?>">
                 <?php foreach ($col['partners'] as $row) :
                     if ( empty($row['logo']) ) continue;
                 ?>
