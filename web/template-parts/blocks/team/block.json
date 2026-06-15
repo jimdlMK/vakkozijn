@@ -1,0 +1,14 @@
+{
+    "name": "mk/team",
+    "title": "Ons team",
+    "category": "mediakanjers",
+    "icon": "groups",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "mode": false
+    }
+}

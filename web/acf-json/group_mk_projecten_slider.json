@@ -1,0 +1,42 @@
+{
+    "key": "group_mk_projecten_slider",
+    "title": "Projecten Slider Blok",
+    "fields": [
+        {
+            "key": "field_ps_titel",
+            "label": "Titel",
+            "name": "ps_titel",
+            "type": "text",
+            "default_value": "Recente projecten",
+            "instructions": "Standaard: 'Recente projecten'"
+        },
+        {
+            "key": "field_ps_aantal",
+            "label": "Aantal projecten",
+            "name": "ps_aantal",
+            "type": "number",
+            "default_value": 6,
+            "min": 3,
+            "max": 12,
+            "instructions": "Aantal projecten dat in de slider wordt geladen (min. 3)"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "mk/projecten-slider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1749693600
+}

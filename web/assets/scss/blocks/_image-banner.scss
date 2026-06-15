@@ -1,0 +1,93 @@
+.mk-image-banner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+
+    // ─── Hoogtes ───────────────────────────────────────────────────────────────
+    &--h-665 { height: 665px; }
+    &--h-571 { height: 571px; }
+
+    // ─── Afbeelding ────────────────────────────────────────────────────────────
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    // ─── Happen / notches ──────────────────────────────────────────────────────
+    // De notch-div IS de gekleurde balk: gecentreerd op content-breedte.
+    // De hoeken van de afbeelding (buiten de content-breedte) blijven zichtbaar.
+    &__notch {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: $layout-maxwidth;
+        max-width: 1600px;
+        height: 130px;
+        z-index: 2;
+        pointer-events: none;
+
+        &--top {
+            top: 0;
+            background-color: var(--notch-color-top, #ffffff);
+        }
+
+        &--bottom {
+            bottom: 0;
+            background-color: var(--notch-color-bottom, #ffffff);
+        }
+    }
+
+    // ─── Vleugels variant: kleur aan de zijkanten, transparant in het midden ──
+    &--vleugels {
+        .mk-image-banner__notch {
+            background: transparent;
+
+            // Linkervleugel
+            &::before,
+            // Rechtervleugel
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 50vw;
+            }
+
+            &::before { right: 100%; }
+            &::after  { left: 100%; }
+
+            &--top {
+                &::before,
+                &::after {
+                    background-color: var(--notch-color-top, #ffffff);
+                }
+            }
+
+            &--bottom {
+                &::before,
+                &::after {
+                    background-color: var(--notch-color-bottom, #ffffff);
+                }
+            }
+        }
+    }
+
+    // ─── Responsive ────────────────────────────────────────────────────────────
+    @media screen and (max-width: 980px) {
+        &--h-665 { height: 420px; }
+        &--h-571 { height: 360px; }
+
+        &__notch {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        &--h-665 { height: 280px; }
+        &--h-571 { height: 240px; }
+    }
+}

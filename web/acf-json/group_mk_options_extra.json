@@ -1,0 +1,48 @@
+{
+    "key": "group_mk_options_extra",
+    "title": "Theme Options – Extra gegevens",
+    "fields": [
+        {
+            "key": "field_options_kvk",
+            "label": "KVK-nummer",
+            "name": "kvk",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "KVK-nummer van het bedrijf",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "aangepaste-velden"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1781525374
+}

@@ -1,108 +1,156 @@
 .gform_wrapper {
     margin-top: 20px;
+
     .gform-body {
         margin: 0;
-          .gfield {
-            position: relative;
-              .gfield_label {
-                display: block;
-                font-size: 15px;
-                font-weight: 400;
-                position: absolute;
-                top: 26px;
-                left: 20px;
-                transition: 0.3s;
-                line-height: 0em;
-                .gfield_required_text {
-                    font-size: 0px;
-                    &::before {
-                        content: "*";
-                        font-size: 15px;
-                        color: #E13510;
-                        padding-left: 2px;
-                    }
-                }
-            }
-            input[type="text"], input[type="email"],input[type="tel"], textarea {
-                width: 100%;
-                padding: 25px 20px 9px 20px;
-                border-radius: 15px;
-                font-size: 15px;
-                transition: 0.2s ease;
-                background: rgba(255, 255, 255, 0.2);
-                border: 0px;
-                color: $color-primary;
-                font-family: $font-family-standard-font;
-                border: 1px solid $color-primary;
-                &:focus {
-                    outline: none;
-                }
-            }
-            &.is-active .gfield_label,
-            &.is-filled .gfield_label {
-                top: 12px;
-                font-size: 12px;
-                transition: 0.3s;
-            }
-        }
     }
+
     .gform_fields {
         display: grid;
-        grid-template-columns: repeat(2,1fr);
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
         .gfield:not(.gfield--width-half) {
-            grid-column-start: 1;
-            grid-column-end: 3;
+            grid-column: 1 / -1;
         }
     }
+
+    // ─── Veld wrapper ─────────────────────────────────────────────────────────
+    .gfield {
+        position: relative;
+
+        // ─── Floating label ───────────────────────────────────────────────────
+        .gfield_label {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-family: $font-family-body;
+            font-size: $font-size-normal;
+            font-weight: $font-weight-normal;
+            color: $color-primary;
+            pointer-events: none;
+            transition: top 0.2s ease, font-size 0.2s ease, transform 0.2s ease;
+            line-height: 1;
+            z-index: 1;
+
+            .gfield_required_text {
+                font-size: 0;
+
+                &::before {
+                    content: "*";
+                    font-size: $font-size-normal;
+                    color: #E13510;
+                    padding-left: 2px;
+                }
+            }
+        }
+
+        // Textarea: label begint niet verticaal gecentreerd
+        &:has(textarea) .gfield_label {
+            top: 20px;
+            transform: none;
+        }
+
+        // Label omhoog bij focus of gevuld
+        &.is-active .gfield_label,
+        &.is-filled .gfield_label {
+            top: 10px;
+            transform: none;
+            font-size: 11px;
+            color: $color-primary;
+        }
+
+        &:has(textarea).is-active .gfield_label,
+        &:has(textarea).is-filled .gfield_label {
+            top: 8px;
+        }
+
+        // ─── Input / textarea ────────────────────────────────────────────────
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 28px 20px 10px;
+            background: #ffffff;
+            border: 1px solid #707070;
+            border-radius: 0;
+            font-family: $font-family-body;
+            font-size: $font-size-normal;
+            font-weight: $font-weight-normal;
+            color: $color-primary;
+            transition: border-color 0.2s ease;
+            appearance: none;
+            -webkit-appearance: none;
+
+            &:focus {
+                outline: none;
+                border-color: $color-primary;
+            }
+        }
+
+        textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        // ─── Validatiemelding ─────────────────────────────────────────────────
+        .gfield_validation_message {
+            font-family: $font-family-body;
+            font-size: 13px;
+            color: #E13510;
+            margin-top: 4px;
+        }
+    }
+
+    // ─── Submit knop ──────────────────────────────────────────────────────────
     .gform-footer {
-        margin-top: 10px;
+        margin-top: 24px;
+
         .gform_button {
-            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            font-family: $font-family-body;
+            font-size: $font-size-normal;
+            font-weight: $font-weight-normal;
             text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 7px;
-            display: flex;
-            width: fit-content;
-            transition: 0.3s;
-            color: white;
-            background-color: $color-primary;
-            outline: none;
+            background-color: $color-secondary;
+            color: $color-primary;
+            border: none;
             cursor: pointer;
-            border: 0px;
+            transition: background-color 0.2s ease;
+            padding: $custom-button-padding-v $custom-button-padding-h;
+            border-radius: 0;
+
             &:hover {
-                background-color: darken($color-primary, 8%);
+                background-color: $color-accent-dark;
             }
         }
     }
-}
 
-// ERROR MESSAGE //
-.gform_wrapper {
+    // ─── Validatie fouten header ──────────────────────────────────────────────
     .gform_validation_errors {
-        margin-bottom: 10px;
+        margin-bottom: 16px;
+
         h2.gform_submission_error {
-            font-size: $h4-font-size;
-            color: #E13510;
-        }
-    }
-    .gfield_error {
-        .gfield_validation_message {
-            font-size: 15px;
+            font-family: $font-family-body;
+            font-size: $font-size-normal;
             color: #E13510;
         }
     }
 }
 
+// ─── Responsive ────────────────────────────────────────────────────────────────
 @media screen and (max-width: 740px) {
-    .gform-body {
+    .gform_wrapper {
         .gform_fields {
-            display: grid;
-            grid-template-columns: repeat(1,1fr);
-            gap: 15px 0px;
+            grid-template-columns: 1fr;
+
             .gfield--width-half {
-                grid-column-start: 1;
-                grid-column-end: 2;
+                grid-column: 1 / -1;
             }
         }
     }

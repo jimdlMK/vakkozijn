@@ -1,5 +1,55 @@
 .contact-info {
-    span, strong, a {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span,
+    a {
         display: block;
-    } 
+        font-family: $font-family-body;
+        font-size: $font-size-normal;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-normal;
+        color: $color-primary;
+        text-decoration: none;
+    }
+
+    &__address,
+    &__zipcode {
+        margin-bottom: 0;
+    }
+
+    &__zipcode {
+        margin-bottom: 16px;
+    }
+
+    &__link {
+        display: flex !important;
+        align-items: center;
+        gap: 12px;
+        margin-top: 4px;
+
+        &::before {
+            content: "";
+            display: block;
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 32px auto;
+        }
+
+        &--phone::before {
+            background-image: url('../images/phone-icon-black.svg');
+        }
+
+        &--mail::before {
+            background-image: url('../images/mail-icon-black.svg');
+        }
+
+        &:hover {
+            color: darken($color-secondary, 10%);
+        }
+    }
 }

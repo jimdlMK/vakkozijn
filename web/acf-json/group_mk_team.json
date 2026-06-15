@@ -1,0 +1,80 @@
+{
+    "key": "group_mk_team",
+    "title": "Team Blok",
+    "fields": [
+        {
+            "key": "field_team_titel",
+            "label": "Titel",
+            "name": "team_titel",
+            "type": "text",
+            "default_value": "Ons team"
+        },
+        {
+            "key": "field_team_medewerkers",
+            "label": "Medewerkers",
+            "name": "team_medewerkers",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Medewerker toevoegen",
+            "sub_fields": [
+                {
+                    "key": "field_team_portret",
+                    "label": "Portretfoto",
+                    "name": "team_portret",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "instructions": "Aanbevolen formaat: 220 × 296px"
+                },
+                {
+                    "key": "field_team_naam",
+                    "label": "Naam",
+                    "name": "team_naam",
+                    "type": "text",
+                    "required": 1
+                },
+                {
+                    "key": "field_team_email",
+                    "label": "E-mailadres",
+                    "name": "team_email",
+                    "type": "email"
+                },
+                {
+                    "key": "field_team_telefoon",
+                    "label": "Telefoonnummer",
+                    "name": "team_telefoon",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_team_afbeelding",
+            "label": "Afbeelding rechts",
+            "name": "team_afbeelding",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "instructions": "Aanbevolen formaat: 631 × 352px"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "mk/team"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1749730000
+}

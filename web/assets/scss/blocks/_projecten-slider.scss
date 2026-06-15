@@ -1,0 +1,197 @@
+// Actieve slide afmetingen
+$ps-active-w: 841px;
+$ps-active-h: 469px;
+// Inactieve slide afmetingen
+$ps-inactive-w: 634px;
+$ps-inactive-h: 354px;
+// Scale factor (verhouding actief/inactief)
+$ps-scale: calc(#{$ps-active-w} / #{$ps-inactive-w}); // ~1.327
+
+// Verticale overflow ruimte = (actief_h - inactief_h) / 2
+$ps-overflow: 58px;
+
+// Pijlknop breedte
+$ps-arrow-w: 56px;
+
+.mk-projecten-slider {
+    overflow: hidden;
+
+    // ─── Header: titel + knop ──────────────────────────────────────────────────
+    &__header {
+        max-width: $layout-content-size;
+        width: $layout-maxwidth;
+        margin: 0 auto 48px;
+        padding: 0 $custom-container-padding;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__heading {
+        font-family: $font-family-heading;
+        font-size: $h2-font-size;
+        font-weight: 700;
+        line-height: $h2-line-height;
+        color: $color-primary;
+        margin: 0;
+    }
+
+    // ─── Slider wrapper ────────────────────────────────────────────────────────
+    &__area {
+        position: relative;
+        // Ruimte voor de verticale overflow van de actieve slide
+        padding: 140px 0;
+        margin: -#{$ps-overflow} 0;
+        overflow: hidden;
+    }
+
+    &__swiper {
+        overflow: visible !important;
+
+        .swiper-wrapper {
+            align-items: center;
+        }
+    }
+
+    // ─── Slide ─────────────────────────────────────────────────────────────────
+    &__slide {
+        width: $ps-inactive-w;
+        transition: transform 0.5s ease;
+
+        &.swiper-slide-active {
+            transform: scale(#{$ps-active-w / $ps-inactive-w});
+            z-index: 2;
+        }
+    }
+
+    &__slide-inner {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    // ─── Afbeelding ────────────────────────────────────────────────────────────
+    &__image {
+        position: relative;
+        width: 100%;
+        height: $ps-inactive-h;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    // ─── Categorie tags ────────────────────────────────────────────────────────
+    &__tags {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        z-index: 2;
+    }
+
+    &__tag {
+        height: 29px;
+        padding: 0 10px;
+        background-color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        font-family: $font-family-heading;
+        font-size: 9px;
+        font-weight: 500;
+        letter-spacing: 1.35px;
+        color: $color-primary;
+        white-space: nowrap;
+        text-transform: uppercase;
+    }
+
+    // ─── Titel ─────────────────────────────────────────────────────────────────
+    &__title {
+        font-family: $font-family-heading;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 58px;
+        letter-spacing: 0;
+        color: $color-primary;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    // ─── Navigatiepijlen ───────────────────────────────────────────────────────
+    &__prev,
+    &__next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: $ps-arrow-w;
+        height: $ps-arrow-w;
+        background-color: $color-secondary;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease;
+        padding: 0;
+
+        img {
+            width: 16px;
+            height: auto;
+            display: block;
+        }
+
+        &:hover {
+            background-color: $color-accent-dark;
+        }
+
+        &.swiper-button-disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+    }
+
+    // Links: pijl omdraaien + positioneren op linker rand van actieve slide
+    &__prev {
+        left: calc(50% - #{$ps-active-w / 2} - #{$ps-arrow-w});
+        img { transform: rotate(180deg); }
+    }
+
+    // Rechts: op rechter rand van actieve slide
+    &__next {
+        right: calc(50% - #{$ps-active-w / 2} - #{$ps-arrow-w});
+    }
+
+    // ─── Responsive ────────────────────────────────────────────────────────────
+    @media screen and (max-width: 1200px) {
+        &__prev { left: 8px; }
+        &__next { right: 8px; }
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 48px 0;
+
+        &__slide {
+            width: 80vw;
+
+            &.swiper-slide-active {
+                transform: scale(1.1);
+            }
+        }
+
+        &__image {
+            height: 50vw;
+        }
+
+        &__prev { left: 4px; }
+        &__next { right: 4px; }
+    }
+}

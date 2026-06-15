@@ -18,7 +18,7 @@ a, abbr, acronym, address, applet, b, big, blockquote, body, center, cite, code,
 }
 
 body {
-    font-family: $font-family-standard-font;
+    font-family: $font-family-body;
     font-size: $font-size-normal;
     font-weight: $font-weight-normal;
     line-height: $line-height-normal;
@@ -41,6 +41,7 @@ img {
     overflow: hidden;
 }
 
+/*
 a:not([class]) {
     color: $font-color-normal;
     position: relative;
@@ -63,6 +64,7 @@ a:not([class]) {
     }
 }
 
+*/
 .menu a,
 .sub-menu a {
     position: static;
@@ -92,4 +94,81 @@ a.white {
             width: 100%;
         }
     }
+}
+
+// ─── Buttons ───────────────────────────────────────────────────────────────────
+
+.mk-btn {
+    display: inline-flex;
+    align-items: stretch;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: $font-family-body;
+    font-size: $font-size-normal;
+    font-weight: $font-weight-normal;
+    line-height: 1;
+    background-color: $color-secondary;
+    color: $color-primary;
+    transition: background-color 0.2s ease;
+
+    &__label {
+        display: flex;
+        align-items: center;
+        padding: $custom-button-padding-v $custom-button-padding-h;
+    }
+
+    // Pijl-box rechts van de knoptekst
+    &__arrow-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 10px 10px 0;
+        padding: 12px 14px;
+        background-color: $color-accent-dark;
+        transition: padding-left 0.2s ease, background-color 0.2s ease;
+
+        img {
+            width: 13px;
+            height: auto;
+            display: block;
+        }
+    }
+
+    &:hover {
+        background-color: $color-accent;
+
+        .mk-btn__arrow-box {
+            padding-left: 18px;
+            background-color: $color-secondary;
+        }
+    }
+
+    // Zwarte variant
+    &--dark {
+        background-color: $color-primary;
+        color: #ffffff;
+
+        .mk-btn__arrow-box {
+            background-color: $color-dark;
+            margin: 5px 5px 5px 0;
+
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+
+        &:hover {
+            background-color: $color-dark;
+
+            .mk-btn__arrow-box {
+                background-color: $color-primary;
+            }
+        }
+    }
+}
+
+
+.paddingbottom0 {
+    padding-bottom: 0px !important;
 }

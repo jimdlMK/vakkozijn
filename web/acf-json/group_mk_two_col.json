@@ -1,0 +1,233 @@
+{
+    "key": "group_mk_two_col",
+    "title": "2 Kolommen Blok",
+    "fields": [
+        {
+            "key": "field_tc_ratio",
+            "label": "Kolomverdeling",
+            "name": "tc_ratio",
+            "type": "radio",
+            "choices": {
+                "50-50": "50 / 50",
+                "60-40": "60 / 40 (links breder)",
+                "40-60": "40 / 60 (rechts breder)"
+            },
+            "default_value": "50-50",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_tc_background",
+            "label": "Achtergrond",
+            "name": "tc_background",
+            "type": "radio",
+            "choices": {
+                "wit": "Wit",
+                "lichtgrijs": "Lichtgrijs"
+            },
+            "default_value": "wit",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_tc_tab1",
+            "label": "Kolom 1",
+            "name": "tc_tab1",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_tc_col1_title_level",
+            "label": "Koptekst niveau",
+            "name": "tc_col1_title_level",
+            "type": "select",
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "ui": 0
+        },
+        {
+            "key": "field_tc_col1_title",
+            "label": "Titel",
+            "name": "tc_col1_title",
+            "type": "text",
+            "instructions": "Leeg laten als er geen titel nodig is"
+        },
+        {
+            "key": "field_tc_col1_tekst",
+            "label": "Tekst",
+            "name": "tc_col1_tekst",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0
+        },
+        {
+            "key": "field_tc_col1_afbeelding",
+            "label": "Afbeelding",
+            "name": "tc_col1_afbeelding",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_tc_col1_quote",
+            "label": "Quote",
+            "name": "tc_col1_quote",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "instructions": "Aanhalingstekens worden automatisch toegevoegd"
+        },
+        {
+            "key": "field_tc_col1_partners",
+            "label": "Partner logo's",
+            "name": "tc_col1_partners",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Logo toevoegen",
+            "sub_fields": [
+                {
+                    "key": "field_tc_col1_partner_logo",
+                    "label": "Logo",
+                    "name": "logo",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all"
+                }
+            ]
+        },
+        {
+            "key": "field_tc_col1_knop",
+            "label": "Knop",
+            "name": "tc_col1_knop",
+            "type": "link",
+            "return_format": "array"
+        },
+        {
+            "key": "field_tc_col1_form_id",
+            "label": "Gravity Forms formulier ID",
+            "name": "tc_col1_form_id",
+            "type": "number",
+            "min": 1,
+            "step": 1,
+            "instructions": "Vul het ID in van het Gravity Forms formulier dat je wilt inladen. Leeg laten als je geen formulier wilt."
+        },
+        {
+            "key": "field_tc_tab2",
+            "label": "Kolom 2",
+            "name": "tc_tab2",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_tc_col2_title_level",
+            "label": "Koptekst niveau",
+            "name": "tc_col2_title_level",
+            "type": "select",
+            "choices": {
+                "h1": "H1",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4"
+            },
+            "default_value": "h2",
+            "return_format": "value",
+            "ui": 0
+        },
+        {
+            "key": "field_tc_col2_title",
+            "label": "Titel",
+            "name": "tc_col2_title",
+            "type": "text",
+            "instructions": "Leeg laten als er geen titel nodig is"
+        },
+        {
+            "key": "field_tc_col2_tekst",
+            "label": "Tekst",
+            "name": "tc_col2_tekst",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0
+        },
+        {
+            "key": "field_tc_col2_afbeelding",
+            "label": "Afbeelding",
+            "name": "tc_col2_afbeelding",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_tc_col2_quote",
+            "label": "Quote",
+            "name": "tc_col2_quote",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "",
+            "instructions": "Aanhalingstekens worden automatisch toegevoegd"
+        },
+        {
+            "key": "field_tc_col2_partners",
+            "label": "Partner logo's",
+            "name": "tc_col2_partners",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Logo toevoegen",
+            "sub_fields": [
+                {
+                    "key": "field_tc_col2_partner_logo",
+                    "label": "Logo",
+                    "name": "logo",
+                    "type": "image",
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all"
+                }
+            ]
+        },
+        {
+            "key": "field_tc_col2_knop",
+            "label": "Knop",
+            "name": "tc_col2_knop",
+            "type": "link",
+            "return_format": "array"
+        },
+        {
+            "key": "field_tc_col2_form_id",
+            "label": "Gravity Forms formulier ID",
+            "name": "tc_col2_form_id",
+            "type": "number",
+            "min": 1,
+            "step": 1,
+            "instructions": "Vul het ID in van het Gravity Forms formulier dat je wilt inladen. Leeg laten als je geen formulier wilt."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "mk/two-col"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1749693600
+}

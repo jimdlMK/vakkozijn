@@ -1,0 +1,120 @@
+{
+    "key": "group_mk_hero",
+    "title": "Hero Blok",
+    "fields": [
+        {
+            "key": "field_mk_hero_image",
+            "label": "Afbeelding",
+            "name": "hero_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "required": 1,
+            "instructions": "Aanbevolen formaat: 1850 × 732px"
+        },
+        {
+            "key": "field_mk_hero_breadcrumb",
+            "label": "Toon breadcrumb",
+            "name": "hero_breadcrumb",
+            "type": "true_false",
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_mk_hero_title_type",
+            "label": "Titeltype",
+            "name": "hero_title_type",
+            "type": "radio",
+            "choices": {
+                "page_title": "Paginatitel gebruiken",
+                "custom": "Eigen titel invullen"
+            },
+            "default_value": "page_title",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_mk_hero_custom_title",
+            "label": "Eigen titel",
+            "name": "hero_custom_title",
+            "type": "text",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_mk_hero_title_type",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_mk_hero_subtitle",
+            "label": "Subtitel",
+            "name": "hero_subtitle",
+            "type": "text",
+            "instructions": "Klein label boven de hoofdtitel (bijv. categorie of tagline)"
+        },
+        {
+            "key": "field_mk_hero_tekst",
+            "label": "Tekst",
+            "name": "hero_tekst",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_mk_hero_knop",
+            "label": "Knop",
+            "name": "hero_knop",
+            "type": "link",
+            "return_format": "array"
+        },
+        {
+            "key": "field_mk_hero_hoogte",
+            "label": "Hoogte",
+            "name": "hero_hoogte",
+            "type": "radio",
+            "choices": {
+                "groot": "Groot (732px — homepage)",
+                "subpagina": "Subpagina (470px)"
+            },
+            "default_value": "groot",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_mk_hero_element_kleur",
+            "label": "Huisstijl element kleur",
+            "name": "hero_element_kleur",
+            "type": "radio",
+            "choices": {
+                "wit": "Wit",
+                "lichtgrijs": "Lichtgrijs"
+            },
+            "default_value": "wit",
+            "layout": "horizontal",
+            "return_format": "value",
+            "instructions": "Kies de kleur van het decoratieve element onderin de hero. Gebruik lichtgrijs als de volgende sectie een grijze achtergrond heeft."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "mk/hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1700000000
+}

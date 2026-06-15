@@ -1,6 +1,6 @@
 .mk-breadcrumbs {
     max-width: $layout-content-size;
-    width: $layout-maxwidth;
+    width: 100%;
     margin: 0 auto;
 
     &:not(:last-child) {
@@ -11,10 +11,10 @@
     align-items: center;
     gap: 6px;
     font-size: $font-size-small;
-    color: $font-color-normal;
+    color: #fff;
 
     a {
-        color: $color-primary;
+        color: #fff;
         text-decoration: none;
 
         &:hover {
@@ -25,11 +25,10 @@
     strong,
     span:not(.mk-breadcrumbs-sep) {
         font-weight: 600;
-        color: $font-color-normal;
+        color: #fff;
     }
 
     &-sep {
-        color: $font-color-normal;
-        opacity: 0.4;
+        color: #fff;
     }
 }

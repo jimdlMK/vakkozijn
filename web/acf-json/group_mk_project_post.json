@@ -1,0 +1,36 @@
+{
+    "key": "group_mk_project_post",
+    "title": "Project velden",
+    "fields": [
+        {
+            "key": "field_project_gallery",
+            "label": "Fotogalerij",
+            "name": "project_gallery",
+            "type": "gallery",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min": 0,
+            "max": 0,
+            "instructions": "Afbeeldingen voor de galerij onderaan de projectpagina. Aanbevolen formaat: 841 × 469px"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "projecten"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1749693600
+}

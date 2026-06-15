@@ -193,6 +193,14 @@ function extractThemeJson(done) {
     output += '\n';
   }
 
+  // Custom tokens (settings.custom)
+  if (json.settings?.custom) {
+    Object.entries(json.settings.custom).forEach(([key, value]) => {
+      output += `$custom-${key}: ${value};\n`;
+    });
+    output += '\n';
+  }
+
 	// Headings (h1 t/m h6) uit styles.elements
   if (json.styles?.elements) {
     ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].forEach(heading => {

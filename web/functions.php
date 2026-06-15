@@ -4,6 +4,7 @@
     require get_stylesheet_directory() . '/assets/functions/custom-functions.php';
     require get_stylesheet_directory() . '/assets/functions/blogs-registrations.php';
     require get_stylesheet_directory() . '/assets/functions/custom-post-types.php';
+    require get_stylesheet_directory() . '/assets/functions/nav-walker.php';
     add_theme_support('align-wide');
     
 ?>
