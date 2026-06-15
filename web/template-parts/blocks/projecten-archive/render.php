@@ -43,8 +43,8 @@ if ( ! $query->have_posts() ) return;
     <nav class="mk-projecten-grid__pagination" aria-label="Paginering">
         <?php
         echo paginate_links([
-            'base'      => add_query_arg( 'paged', '%#%', get_permalink() ),
-            'format'    => '',
+            'base'      => trailingslashit( get_permalink() ) . '%_%',
+            'format'    => 'page/%#%/',
             'total'     => $query->max_num_pages,
             'current'   => $paged,
             'type'      => 'list',
