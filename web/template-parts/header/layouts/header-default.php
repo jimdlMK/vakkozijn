@@ -40,10 +40,17 @@ $logo_url = get_field('logo', 'options');
             </div>
             <div class="mk-header__main__nav">
                 <?php get_template_part('template-parts/header/nav-main'); ?>
-                <div class="open-mobile-menu">
-                    <span class="lineone"></span>
-                    <span class="linetwo"></span>
-                    <span class="linethree"></span>
+                <div class="mk-header__mobile-actions">
+                    <?php if ( $phone ) : ?>
+                    <a href="tel:<?php echo esc_attr( preg_replace('/\s+/', '', $phone) ); ?>" class="mk-header__mobile-phone" aria-label="Bellen">
+                        <img src="<?php echo esc_url( $img_uri . '/phone-icon-black.svg' ); ?>" alt="">
+                    </a>
+                    <?php endif; ?>
+                    <div class="open-mobile-menu">
+                        <span class="lineone"></span>
+                        <span class="linetwo"></span>
+                        <span class="linethree"></span>
+                    </div>
                 </div>
             </div>
         </div>

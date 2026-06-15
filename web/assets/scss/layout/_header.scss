@@ -133,10 +133,6 @@
     // ─── Responsive ────────────────────────────────────────────────────────────
     @media screen and (max-width: 980px) {
 
-        &__topbar {
-            display: none;
-        }
-
         &__main {
             &__inner {
                 padding: 16px $custom-container-padding;
