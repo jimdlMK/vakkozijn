@@ -10,8 +10,8 @@
             "return_format": "array",
             "preview_size": "large",
             "library": "all",
-            "required": 1,
-            "instructions": "Aanbevolen formaat: 1850 × 732px"
+            "required": 0,
+            "instructions": "Aanbevolen formaat: 1850 × 732px. Laat leeg voor een lichte achtergrond (#F7F6F4) met donkere tekst."
         },
         {
             "key": "field_mk_hero_breadcrumb",
@@ -78,7 +78,8 @@
             "type": "radio",
             "choices": {
                 "groot": "Groot (732px — homepage)",
-                "subpagina": "Subpagina (470px)"
+                "subpagina": "Subpagina (470px)",
+                "mini": "Mini (240px — contact / smalle pagina)"
             },
             "default_value": "groot",
             "layout": "horizontal",

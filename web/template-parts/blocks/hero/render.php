@@ -18,8 +18,10 @@ if ( $title_type === 'custom' && $custom_title ) {
 }
 
 $classes = 'mk-hero';
-if ( $image )                  $classes .= ' mk-hero--has-image';
-if ( $hoogte === 'subpagina' ) $classes .= ' mk-hero--subpagina';
+if ( $image )                          $classes .= ' mk-hero--has-image';
+if ( ! $image )                        $classes .= ' mk-hero--light-bg';
+if ( $hoogte === 'subpagina' )         $classes .= ' mk-hero--subpagina';
+if ( $hoogte === 'mini' )              $classes .= ' mk-hero--mini';
 if ( $element_kleur === 'lichtgrijs' ) $classes .= ' mk-hero--element-lichtgrijs';
 ?>
 <section class="<?php echo esc_attr( $classes ); ?>"

@@ -21,12 +21,44 @@
     }
 
     &--light-bg {
+        .mk-hero__overlay {
+            background: none;
+        }
+
         .mk-hero__breadcrumb * {
             color: $color-primary;
         }
 
         .mk-hero__breadcrumb a:hover {
             color: $color-secondary;
+        }
+
+        .mk-hero__title,
+        .mk-hero__tekst {
+            color: $color-primary;
+        }
+    }
+
+    // Mini hoogte — contact/smalle subpagina's
+    &--mini {
+        min-height: 240px;
+
+        .mk-hero__container {
+            padding-bottom: 80px;
+            padding-top: 32px;
+            justify-content: flex-end;
+        }
+
+        .mk-hero__content {
+            margin-top: 0;
+        }
+
+        .mk-hero__breadcrumb {
+            top: 32px;
+        }
+
+        .mk-hero__element {
+            height: 80px;
         }
     }
     background-size: cover;
