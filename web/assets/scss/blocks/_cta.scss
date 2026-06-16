@@ -115,21 +115,56 @@
 
     @media screen and (max-width: 980px) {
         height: auto;
-        padding: 60px 0;
+        padding: 40px 0;
         overflow: hidden;
 
         &__inner {
-            flex-direction: column;
-            gap: 32px;
+            display: grid;
+            grid-template-columns: 1fr 130px;
+            grid-template-areas:
+                "title  image"
+                "text   image"
+                "btn    btn";
+            column-gap: 16px;
+            row-gap: 10px;
+            align-items: start;
+            height: auto;
+            justify-content: unset;
+        }
+
+        // display:contents maakt de wrapper onzichtbaar voor layout
+        // titel, tekst en knop worden directe grid-kinderen
+        &__content {
+            display: contents;
+        }
+
+        &__titel {
+            grid-area: title;
+            text-align: left;
+        }
+
+        &__tekst {
+            grid-area: text;
+            text-align: left;
         }
 
         &__afbeelding {
+            grid-area: image;
             position: static;
+            align-self: end;
 
             img {
-                width: 240px;
+                width: 130px;
                 height: auto;
+                object-position: top center;
             }
+        }
+
+        .mk-btn--dark {
+            grid-area: btn;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
         }
 
         &__huisstijl {
