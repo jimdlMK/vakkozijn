@@ -20,7 +20,7 @@ if ( ! $projecten ) return;
 
     <div class="mk-projecten-slider__header">
         <h2 class="mk-projecten-slider__heading"><?php echo esc_html($titel); ?></h2>
-        <a href="/projecten" class="mk-btn">
+        <a href="/projecten" class="mk-btn mk-projecten-slider__btn">
             <span class="mk-btn__label">Bekijk alle projecten</span>
             <span class="mk-btn__arrow-box">
                 <img src="<?php echo esc_url($img_uri . '/Icon feather-arrow-right.svg'); ?>" alt="">
