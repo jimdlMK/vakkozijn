@@ -191,7 +191,7 @@
         }
 
         &__element {
-            height: 160px;
+            height: 75px;
         }
     }
 
@@ -199,7 +199,7 @@
         min-height: 380px;
 
         &__container {
-            padding: 24px $custom-container-padding 160px;
+            padding: 24px $custom-container-padding 100px;
         }
     }
 }

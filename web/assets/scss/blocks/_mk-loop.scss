@@ -157,9 +157,42 @@
             display: none;
         }
 
-        @media screen and (max-width: 980px) {
+        // ── Desktop: Swiper disabled → CSS grid via swiper-wrapper override ──
+        @media screen and (min-width: 981px) {
+            .mk-loop__swiper {
+                overflow: visible;
+            }
+
             .mk-loop__grid {
-                grid-template-columns: repeat(2, 1fr) !important;
+                display: grid !important;
+                flex-wrap: unset;
+                transform: none !important;
+                gap: 30px;
+
+                &[data-grid="2"] { grid-template-columns: repeat(2, 1fr); }
+                &[data-grid="3"] { grid-template-columns: repeat(3, 1fr); }
+                &[data-grid="4"] { grid-template-columns: repeat(4, 1fr); }
+
+                .swiper-slide {
+                    width: auto !important;
+                    margin: 0 !important;
+                }
+            }
+        }
+
+        // ── Mobiel: Swiper slider met half-zichtbare volgende kaart ──────────
+        @media screen and (max-width: 980px) {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden; // knipt de peeking slide af aan de rechterkant
+
+            .mk-loop__grid {
+                display: flex !important; // Swiper heeft flex nodig op mobiel
+                grid-template-columns: unset !important;
+            }
+
+            .mk-loop__swiper {
+                overflow: visible; // volgende slide mag buiten het swiper-element uitsteken
             }
         }
     }
