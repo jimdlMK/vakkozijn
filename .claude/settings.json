@@ -3,7 +3,8 @@
     "allow": [
       "Read(//c/laragon/www/vakkozijn/wp-content/themes/mkbase/inc/**)",
       "Read(//c/laragon/www/vakkozijn/wp-content/themes/mkbase/inc/enqueue/**)",
-      "Read(//c/laragon/www/vakkozijn/wp-content/themes/mkbase/template-parts/blocks/breadcrumbs/**)"
+      "Read(//c/laragon/www/vakkozijn/wp-content/themes/mkbase/template-parts/blocks/breadcrumbs/**)",
+      "Read(//c/laragon/www/vakkozijn/wp-content/themes/mkbase/**)"
     ]
   }
 }

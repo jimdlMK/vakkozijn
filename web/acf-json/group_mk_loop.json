@@ -44,7 +44,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "mk/loop"
+                "value": "mk/product-loop"
             }
         ]
     ],

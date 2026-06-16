@@ -1,6 +1,6 @@
 {
-    "name": "mk/loop",
-    "title": "Loop",
+    "name": "mk/product-loop",
+    "title": "Product Loop",
     "description": "Overzicht van een custom post type als grid (desktop) of slider (mobiel).",
     "category": "layout",
     "icon": "grid-view",
