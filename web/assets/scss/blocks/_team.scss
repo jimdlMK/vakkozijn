@@ -78,7 +78,7 @@
     &__link {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         text-decoration: none;
         font-family: $font-family-body;
         font-size: 16px;
@@ -87,32 +87,30 @@
         letter-spacing: 0;
         color: #000000;
 
-        &:hover {
-            color: $color-primary;
-
-            .mk-team__icon {
-                background-color: $color-accent-dark;
-            }
-        }
-    }
-
-    &__icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        width: 32px;
-        height: 32px;
-        background-color: $color-secondary;
-        transition: background-color 0.2s ease;
-
-        img {
-            width: 14px;
-            height: auto;
+        &::before {
+            content: "";
             display: block;
-            filter: brightness(0) invert(1); // zwart icon → wit
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 32px auto;
+        }
+
+        &--phone::before {
+            background-image: url('../images/phone-icon-black.svg');
+        }
+
+        &--mail::before {
+            background-image: url('../images/mail-icon-black.svg');
+        }
+
+        &:hover {
+            color: $color-secondary;
         }
     }
+
 
     // ─── Rechter afbeelding ───────────────────────────────────────────────────
     &__right {

@@ -38,19 +38,13 @@ $img_uri    = get_stylesheet_directory_uri() . '/dist/images';
 
                     <div class="mk-team__contact">
                         <?php if ( $email ) : ?>
-                        <a class="mk-team__link" href="mailto:<?php echo esc_attr( $email ); ?>">
-                            <span class="mk-team__icon">
-                                <img src="<?php echo esc_url( $img_uri . '/mail-icon-black.svg' ); ?>" alt="">
-                            </span>
+                        <a class="mk-team__link mk-team__link--mail" href="mailto:<?php echo esc_attr( $email ); ?>">
                             <span><?php echo esc_html( $email ); ?></span>
                         </a>
                         <?php endif; ?>
 
                         <?php if ( $telefoon ) : ?>
-                        <a class="mk-team__link" href="tel:<?php echo esc_attr( preg_replace('/\s+/', '', $telefoon) ); ?>">
-                            <span class="mk-team__icon">
-                                <img src="<?php echo esc_url( $img_uri . '/phone-icon-black.svg' ); ?>" alt="">
-                            </span>
+                        <a class="mk-team__link mk-team__link--phone" href="tel:<?php echo esc_attr( preg_replace('/\s+/', '', $telefoon) ); ?>">
                             <span><?php echo esc_html( $telefoon ); ?></span>
                         </a>
                         <?php endif; ?>
