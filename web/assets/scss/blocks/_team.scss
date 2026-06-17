@@ -43,7 +43,7 @@
     // ─── Portret ──────────────────────────────────────────────────────────────
     &__portret {
         width: 220px;
-        height: 296px;
+        height: auto;
         overflow: hidden;
         flex-shrink: 0;
 
@@ -127,30 +127,45 @@
     }
 
     // ─── Responsive ───────────────────────────────────────────────────────────
-    @media screen and (max-width: 1200px) {
-        &__right {
-            width: 400px;
-
-            img {
-                width: 400px;
-                height: 223px;
-            }
-        }
-    }
-
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 1300px) {
         &__inner {
             flex-direction: column;
+            align-items: stretch;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        &__card {
+            align-items: flex-start;
+        }
+
+        &__portret {
+            width: 100%;
+            height: auto;
+        }
+
+        &__naam {
+            width: 100%;
         }
 
         &__right {
             width: 100%;
+            margin-top: 0;
 
             img {
                 width: 100%;
                 height: auto;
                 max-height: 300px;
             }
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 
@@ -162,7 +177,7 @@
 
         &__portret {
             width: 180px;
-            height: 242px;
+            height: auto;
         }
 
         &__naam {
