@@ -23,6 +23,8 @@ body {
     font-weight: $font-weight-normal;
     line-height: $line-height-normal;
     color: $font-color-normal;
+
+    overflow-x: hidden;
 }
 
 body.freeze {
