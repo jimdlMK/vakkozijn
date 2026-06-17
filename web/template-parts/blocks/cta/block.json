@@ -1,0 +1,14 @@
+{
+    "name": "mk/cta",
+    "title": "CTA",
+    "category": "mediakanjers",
+    "icon": "megaphone",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "mode": false
+    }
+}

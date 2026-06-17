@@ -1,0 +1,34 @@
+{
+    "key": "group_mk_projecten_archive",
+    "title": "Projecten Overzicht Blok",
+    "fields": [
+        {
+            "key": "field_pa_per_pagina",
+            "label": "Projecten per pagina",
+            "name": "pa_per_pagina",
+            "type": "number",
+            "default_value": 4,
+            "min": 2,
+            "max": 12,
+            "instructions": "Standaard: 4"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "mk/projecten-archive"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1749693600
+}

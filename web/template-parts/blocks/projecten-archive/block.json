@@ -1,0 +1,14 @@
+{
+    "name": "mk/projecten-archive",
+    "title": "Projecten overzicht",
+    "category": "mediakanjers",
+    "icon": "grid-view",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "mode": false
+    }
+}

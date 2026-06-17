@@ -1,23 +1,64 @@
 .mk-nav-main {
-    .menu-hoofdmenu-container {
-        #menu-hoofdmenu {
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            justify-content: end;
-            gap: 20px;
-            li {
-                &::marker {
-                    content: "";
-                    display: none;
-                    width: 0;
-                    height: 0;
-                    opacity: 0;
-                    visibility: hidden;
+    ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        align-items: center;
+        gap: 32px;
+        margin: 0;
+        padding: 0;
+
+        li {
+            position: relative;
+
+            &::marker {
+                display: none;
+            }
+
+            a {
+                font-family: $font-family-body;
+                font-size: $font-size-normal;
+                font-weight: $font-weight-normal;
+                line-height: $line-height-normal;
+                color: $color-primary;
+                text-decoration: none;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: $color-secondary;
                 }
-                a {
-                    color: $font-color-normal;
-                    text-decoration: none;
+            }
+
+
+            // Active dot (behalve op het laatste item)
+            &.current-menu-item:not(:last-child) > a,
+            &.current-menu-ancestor:not(:last-child) > a {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    right: -8px;
+                    transform: translateY(-50%);
+                    width: $custom-menu-dot-size;
+                    height: $custom-menu-dot-height;
+                    background-color: $custom-menu-dot-color;
+                    border-radius: 1px;
+                }
+            }
+
+            // Laatste menu item wordt als mk-btn gerenderd via MK_Nav_Walker
+            &:last-child {
+                margin-left: 8px;
+
+                &::after {
+                    display: none;
+                }
+                &:hover {
+                    a {
+                        color: $color-primary;
+                    }
                 }
             }
         }

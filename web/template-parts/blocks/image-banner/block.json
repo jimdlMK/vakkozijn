@@ -1,0 +1,14 @@
+{
+    "name": "mk/image-banner",
+    "title": "Afbeelding banner",
+    "category": "mediakanjers",
+    "icon": "format-image",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": false
+    }
+}

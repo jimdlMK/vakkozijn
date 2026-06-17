@@ -1,0 +1,44 @@
+{
+    "key": "group_mk_contact_info_block",
+    "title": "Contact Info Blok",
+    "fields": [
+        {
+            "key": "field_ci_titel",
+            "label": "Titel",
+            "name": "ci_titel",
+            "type": "text"
+        },
+        {
+            "key": "field_ci_knop",
+            "label": "Knop",
+            "name": "ci_knop",
+            "type": "link",
+            "return_format": "array"
+        },
+        {
+            "key": "field_ci_link",
+            "label": "Hyperlink (naast knop)",
+            "name": "ci_link",
+            "type": "link",
+            "return_format": "array",
+            "instructions": "Wordt weergegeven als tekst met groene onderstreping en pijltje"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "mk/contact-info"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 0,
+    "modified": 1749730000
+}

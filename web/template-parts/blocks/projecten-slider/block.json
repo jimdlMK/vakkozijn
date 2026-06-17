@@ -1,0 +1,14 @@
+{
+    "name": "mk/projecten-slider",
+    "title": "Projecten slider",
+    "category": "mediakanjers",
+    "icon": "images-alt2",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": ["full"],
+        "mode": false
+    }
+}

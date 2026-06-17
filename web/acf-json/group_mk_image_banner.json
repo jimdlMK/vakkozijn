@@ -1,0 +1,143 @@
+{
+    "key": "group_mk_image_banner",
+    "title": "Afbeelding Banner Blok",
+    "fields": [
+        {
+            "key": "field_ib_afbeelding",
+            "label": "Afbeelding",
+            "name": "ib_afbeelding",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "required": 1,
+            "instructions": "Aanbevolen breedte: minimaal 1850px"
+        },
+        {
+            "key": "field_ib_hoogte",
+            "label": "Hoogte",
+            "name": "ib_hoogte",
+            "type": "radio",
+            "choices": {
+                "665": "665px (groot)",
+                "571": "571px (normaal)"
+            },
+            "default_value": "665",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_ib_notch_positie",
+            "label": "Happen / uitsnedes",
+            "name": "ib_notch_positie",
+            "type": "radio",
+            "choices": {
+                "geen": "Geen",
+                "boven": "Alleen boven",
+                "onder": "Alleen onder",
+                "boven-en-onder": "Boven én onder (H-vorm)"
+            },
+            "default_value": "geen",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_ib_notch_stijl",
+            "label": "Stijl uitsnede",
+            "name": "ib_notch_stijl",
+            "type": "radio",
+            "choices": {
+                "midden": "Midden (gekleurde balk in het midden)",
+                "vleugels": "Vleugels (gekleurde zijkanten, transparant midden)"
+            },
+            "default_value": "midden",
+            "layout": "vertical",
+            "return_format": "value",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ib_notch_positie",
+                        "operator": "!=",
+                        "value": "geen"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_ib_notch_kleur_boven",
+            "label": "Kleur uitsnede boven",
+            "name": "ib_notch_kleur_boven",
+            "type": "radio",
+            "choices": {
+                "wit": "Wit (#ffffff)",
+                "lichtgrijs": "Lichtgrijs (#F7F6F4)"
+            },
+            "default_value": "wit",
+            "layout": "horizontal",
+            "return_format": "value",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ib_notch_positie",
+                        "operator": "==",
+                        "value": "boven"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_ib_notch_positie",
+                        "operator": "==",
+                        "value": "boven-en-onder"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_ib_notch_kleur_onder",
+            "label": "Kleur uitsnede onder",
+            "name": "ib_notch_kleur_onder",
+            "type": "radio",
+            "choices": {
+                "wit": "Wit (#ffffff)",
+                "lichtgrijs": "Lichtgrijs (#F7F6F4)"
+            },
+            "default_value": "wit",
+            "layout": "horizontal",
+            "return_format": "value",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_ib_notch_positie",
+                        "operator": "==",
+                        "value": "onder"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_ib_notch_positie",
+                        "operator": "==",
+                        "value": "boven-en-onder"
+                    }
+                ]
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "mk/image-banner"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1749693600
+}

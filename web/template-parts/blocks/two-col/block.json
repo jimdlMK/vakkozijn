@@ -1,0 +1,14 @@
+{
+    "name": "mk/two-col",
+    "title": "2 Kolommen",
+    "category": "mediakanjers",
+    "icon": "columns",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": ["full", "wide"],
+        "mode": false
+    }
+}

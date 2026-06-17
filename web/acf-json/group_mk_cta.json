@@ -1,0 +1,55 @@
+{
+    "key": "group_mk_cta",
+    "title": "CTA Blok",
+    "fields": [
+        {
+            "key": "field_cta_titel",
+            "label": "Titel",
+            "name": "cta_titel",
+            "type": "text"
+        },
+        {
+            "key": "field_cta_tekst",
+            "label": "Tekst",
+            "name": "cta_tekst",
+            "type": "textarea",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_cta_knop",
+            "label": "Knop",
+            "name": "cta_knop",
+            "type": "link",
+            "return_format": "array"
+        },
+        {
+            "key": "field_cta_afbeelding",
+            "label": "Afbeelding (persoon)",
+            "name": "cta_afbeelding",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "instructions": "Persoon met transparante achtergrond. Aanbevolen formaat: 323 × 483px. Het hoofd mag boven de sectie uitsteken."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "mk/cta"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1749730000
+}

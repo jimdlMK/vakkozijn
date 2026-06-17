@@ -1,0 +1,15 @@
+{
+  "name": "mk/hero",
+  "title": "Hero",
+  "description": "Volledige breedte hero sectie met afbeelding, titel, tekst en knop.",
+  "category": "mediakanjers",
+  "icon": "cover-image",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["full", "wide"],
+    "mode": false
+  }
+}

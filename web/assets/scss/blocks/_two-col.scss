@@ -1,0 +1,147 @@
+﻿.mk-two-col {
+    padding: 80px 0;
+
+    // â”€â”€â”€ Achtergrond â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    &--bg-white { background-color: #ffffff; }
+    &--bg-light { background-color: $color-background-light; }
+
+    // â”€â”€â”€ Inner container + grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    &__inner {
+        max-width: $layout-content-size;
+        width: $layout-maxwidth;
+        margin: 0 auto;
+        display: grid;
+        gap: 48px;
+        align-items: start;
+    }
+
+    &--ratio-50-50 .mk-two-col__inner { grid-template-columns: 1fr 1fr; }
+    &--ratio-60-40 .mk-two-col__inner { grid-template-columns: 3fr 2fr; }
+    &--ratio-40-60 .mk-two-col__inner { grid-template-columns: 2fr 3fr; }
+
+    // ─── Kolom ──────────────────────────────────────────────────────────────────
+    &__col {
+        display: flex;
+        flex-direction: column;
+
+        // TOEGEVOEGD: Zorgt dat de 2e kolom de volledige hoogte pakt als we verticaal willen centreren
+        &--stretch {
+            align-self: stretch;
+        }
+    }
+
+    // ─── Slots ──────────────────────────────────────────────────────────────────
+    &__slot {
+        & + & {
+            margin-top: 24px;
+        }
+
+        &--afbeelding {
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+
+        &--quote {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        &--partners {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+            justify-content: flex-start;
+            margin-top: 80px;
+
+            // TOEGEVOEGD: Horizontaal en verticaal centreren
+            &.is-centered {
+                justify-content: center;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+        }
+
+        &--knop {
+            padding-top: 8px;
+        }
+    }
+
+    // â”€â”€â”€ Typografie â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    &__title {
+        font-family: $font-family-heading;
+        font-weight: 700;
+        color: $color-primary;
+        margin: 0 0 8px;
+        line-height: 1.2;
+
+        @at-root h1#{&} { font-size: $h1-font-size; line-height: $h1-line-height; }
+        @at-root h2#{&} { font-size: $h2-font-size; line-height: $h2-line-height; }
+        @at-root h3#{&} { font-size: $h3-font-size; line-height: $h3-line-height; }
+        @at-root h4#{&} { font-size: $h4-font-size; line-height: $h4-line-height; }
+    }
+
+    &__tekst {
+        font-family: $font-family-body;
+        font-size: $font-size-normal;
+        line-height: $line-height-normal;
+        color: $font-color-normal;
+
+        p { margin: 0 0 12px; }
+        p:last-child { margin-bottom: 0; }
+
+        strong { font-weight: 700; }
+        em { font-style: italic; }
+
+        a {
+            color: $color-primary;
+            text-decoration: underline;
+            text-decoration-color: $color-secondary;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+    }
+
+    &__quote {
+        font-family: $font-family-heading;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 40px;
+        letter-spacing: 0;
+        color: $color-primary;
+        margin: 0;
+        font-style: normal;
+    }
+
+    &__partner-logo {
+        max-height: 60px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+    // â”€â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    @media screen and (max-width: 980px) {
+        padding: 48px 0;
+
+        &__inner {
+            grid-template-columns: 1fr !important;
+            gap: 32px;
+        }
+
+        &__title {
+            @at-root h1#{&} { font-size: 22px; line-height: 1.35; }
+            @at-root h2#{&} { font-size: 20px; line-height: 1.35; }
+            @at-root h3#{&} { font-size: 18px; line-height: 1.4; }
+        }
+    }
+}
+
+

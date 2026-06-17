@@ -4,8 +4,9 @@
 
 /* ===== LAYOUT ===== */
 @import "layout/_guttenberg.scss";
+@import "layout/_custom-sections.scss";
 @import "layout/_header.scss";
-@import "layout/footer.scss";
+@import "layout/_footer.scss";
 
 
 /* ===== TEMPLATE PARTS ===== */
@@ -24,6 +25,15 @@
     @import "components/form/_form.scss";
 
 /* ===== BLOCKS ===== */
+    @import "blocks/_hero.scss";
+    @import "blocks/_cta.scss";
+    @import "blocks/_contact-info-block.scss";
+    @import "blocks/_team.scss";
+    @import "blocks/_two-col.scss";
+    @import "blocks/_image-banner.scss";
     @import "blocks/_mk-loop.scss";
+    @import "blocks/_projecten-slider.scss";
+    @import "blocks/_projecten-archive.scss";
+    @import "blocks/_projecten-single.scss";
     @import "blocks/_image-slider.scss";
     @import "blocks/_mk-breadcrumbs.scss";

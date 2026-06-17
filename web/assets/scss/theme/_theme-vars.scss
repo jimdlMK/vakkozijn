@@ -1,61 +1,72 @@
 // ⚠️ Automatisch gegenereerd uit theme.json – niet handmatig aanpassen!
-$color-primary: #0057b8;
-$color-secondary: #e63946;
+$color-primary: #000000;
+$color-secondary: #D0CF00;
+$color-white: #FFFFFF;
+$color-background-light: #F7F6F4;
+$color-accent: #DFDE04;
+$color-accent-dark: #BEBD12;
+$color-dark: #393232;
 
 $layout-content-size: 1400px;
-$layout-wide-size: 1700px;
+$layout-wide-size: 1600px;
 $layout-maxwidth: 90%;
 $layout-block-spacing: 30px;
 
-$font-size-small: 1.0rem;
-$line-height-small: 1.4em;
-$font-weight-small: 400;
-$font-color-small: #3c3c3c;
+$font-size-tag: 9px;
+$line-height-tag: 75px;
+$font-weight-tag: 500;
+$font-color-tag: #000000;
 
-$font-size-normal: 1.2rem;
-$line-height-normal: 1.4em;
+$font-size-small: 13px;
+$line-height-small: 30px;
+$font-weight-small: 500;
+$font-color-small: #000000;
+
+$font-size-normal: 16px;
+$line-height-normal: 30px;
 $font-weight-normal: 400;
-$font-color-normal: #3c3c3c;
+$font-color-normal: #000000;
 
-$font-size-large: 1.8rem;
-$line-height-large: 1.4em;
-$font-weight-large: 400;
-$font-color-large: #3c3c3c;
+$font-size-intro: 20px;
+$line-height-intro: 35px;
+$font-weight-intro: 500;
+$font-color-intro: #000000;
 
-$font-size-extra-large: 2.4rem;
-$line-height-extra-large: 1.4em;
-$font-weight-extra-large: 400;
-$font-color-extra-large: #3c3c3c;
+$font-family-heading: Termina, sans-serif;
+$font-family-body: 'Inter', sans-serif;
 
-$font-family-standard-font: 'Helvetica Neue', sans-serif;
+$custom-container-padding: 20px;
+$custom-button-padding-v: 14px;
+$custom-button-padding-h: 28px;
+$custom-logo-width: 238px;
+$custom-logo-height: 35px;
+$custom-link-underline-color: #D0CF00;
+$custom-link-underline-width: 2px;
+$custom-menu-dot-color: #D0CF00;
+$custom-menu-dot-size: 5px;
+$custom-menu-dot-height: 4px;
 
-$h1-font-size: 4rem;
-$h1-font-weight: 700;
-$h1-line-height: 1.2;
-$h1-color: #0057b8;
+$h1-font-size: 40px;
+$h1-font-weight: 500;
+$h1-line-height: 1.325;
 
-$h2-font-size: 3.5rem;
-$h2-font-weight: 600;
-$h2-line-height: 1.3;
-$h2-color: #0057b8;
+$h2-font-size: 36px;
+$h2-font-weight: 500;
+$h2-line-height: 1.25;
 
-$h3-font-size: 3rem;
-$h3-font-weight: 600;
-$h3-line-height: 1.3;
-$h3-color: #0057b8;
+$h3-font-size: 28px;
+$h3-font-weight: 500;
+$h3-line-height: 1.286;
 
-$h4-font-size: 2.5rem;
+$h4-font-size: 24px;
 $h4-font-weight: 500;
-$h4-line-height: 1.4;
-$h4-color: #0057b8;
+$h4-line-height: 1.333;
 
-$h5-font-size: 2rem;
+$h5-font-size: 20px;
 $h5-font-weight: 500;
 $h5-line-height: 1.4;
-$h5-color: #0057b8;
 
-$h6-font-size: 1.5rem;
+$h6-font-size: 16px;
 $h6-font-weight: 500;
-$h6-line-height: 1.4;
-$h6-color: #0057b8;
+$h6-line-height: 1.5;
 

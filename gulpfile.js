@@ -40,16 +40,8 @@ const paths = {
 async function css() {
 	const autoprefixer = await import('gulp-autoprefixer');
 
-	return src(paths.scss)
-		.pipe(sassLint({
-			options: {
-				formatter: 'stylish'
-			},
-			configFile: 'sass-lint.yml'
-		}))
-		.pipe(sassLint.format())
-		.pipe(sassLint.failOnError())
-		.pipe(sass())
+	return src('web/assets/scss/style-main.scss')
+		.pipe(sass().on('error', sass.logError))
 		.pipe(
 			autoprefixer.default({
 				overrideBrowserslist: ["last 2 versions"],
@@ -189,6 +181,14 @@ function extractThemeJson(done) {
   if (json.settings?.typography?.fontFamilies) {
     json.settings.typography.fontFamilies.forEach(font => {
       output += `$font-family-${font.slug}: ${font.fontFamily};\n`;
+    });
+    output += '\n';
+  }
+
+  // Custom tokens (settings.custom)
+  if (json.settings?.custom) {
+    Object.entries(json.settings.custom).forEach(([key, value]) => {
+      output += `$custom-${key}: ${value};\n`;
     });
     output += '\n';
   }

@@ -1,0 +1,22 @@
+// ─── Gutenberg group block: Huisstijl-element-sectie ─────────────────────────
+.huisstijl-element-sectie {
+    position: relative; // CRUCIAL: Zorgt dat ::after binnen dit block blijft
+    overflow: hidden;   // Voorkomt dat de -80px rechts een horizontale scrollbalk veroorzaakt
+    z-index: 1;         // Zorgt dat de content boven de achtergrond blijft
+
+    // Decoratief V-logo element
+    &::after {
+        content: '';
+        position: absolute;
+        right: 80px;
+        transform: translateY(-60%);
+        width: 946px;
+        height: 565px;
+        background-image: url('../images/v-logo-huisstijl.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        pointer-events: none;
+        z-index: -1; // Zet deze op -1 zodat het LOGO achter de tekst/knoppen valt
+    }
+}

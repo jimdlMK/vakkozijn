@@ -1,0 +1,186 @@
+.mk-cta {
+    position: relative;
+    height: 416px;
+    background-color: $color-secondary;
+    overflow: visible; // persoon hoofd steekt boven sectie uit
+    display: flex;
+    align-items: center;
+
+    // ─── Huisstijl element (links middenin) ────────────────────────────────────
+    &__huisstijl {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+        width: 693px;
+        height: 414px;
+        pointer-events: none;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: left center;
+            display: block;
+        }
+    }
+
+    // ─── Inner (content-width, flex) ───────────────────────────────────────────
+    &__inner {
+        position: relative;
+        z-index: 1;
+        max-width: $layout-content-size;
+        width: $layout-maxwidth;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        height: 100%;
+    }
+
+    // ─── Tekstblok (gecentreerd) ────────────────────────────────────────────────
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 600px;
+        gap: 20px;
+    }
+
+    &__titel {
+        font-family: $font-family-heading;
+        font-size: 35px;
+        font-weight: 700;
+        line-height: 45px;
+        letter-spacing: 0;
+        color: #000000;
+        margin: 0;
+    }
+
+    &__tekst {
+        font-family: $font-family-body;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0;
+        color: #000000;
+        margin: 0;
+    }
+
+    // ─── Zwarte knop variant ────────────────────────────────────────────────────
+    .mk-btn--dark {
+        background-color: #000000;
+        color: #ffffff;
+
+        .mk-btn__arrow-box {
+            background-color: #BEBD12;
+
+            img {
+                color: $color-primary;
+                filter: none;
+            }
+        }
+
+        &:hover .mk-btn__arrow-box {
+            background-color: #BEBD12;
+            filter: brightness(85%);
+        }
+    }
+
+    // ─── Persoonsafbeelding (uitstekend hoofd) ─────────────────────────────────
+    &__afbeelding {
+        position: absolute;
+        right: calc((115% - #{$layout-content-size}) / 2 + 0px);
+        bottom: 0;
+        flex-shrink: 0;
+
+        img {
+            width: 323px;
+            height: 483px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+    }
+
+    // ─── Responsive ────────────────────────────────────────────────────────────
+    @media screen and (max-width: 1300px) {
+        &__afbeelding {
+            right: 0;
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        height: auto;
+        padding: 40px 0;
+        overflow: hidden;
+
+        &__inner {
+            display: grid;
+            grid-template-columns: 1fr 130px;
+            grid-template-areas:
+                "title  image"
+                "text   image"
+                "btn    btn";
+            column-gap: 16px;
+            row-gap: 10px;
+            align-items: start;
+            height: auto;
+            justify-content: unset;
+        }
+
+        // display:contents maakt de wrapper onzichtbaar voor layout
+        // titel, tekst en knop worden directe grid-kinderen
+        &__content {
+            display: contents;
+        }
+
+        &__titel {
+            grid-area: title;
+            text-align: left;
+        }
+
+        &__tekst {
+            grid-area: text;
+            text-align: left;
+        }
+
+        &__afbeelding {
+            grid-area: image;
+            position: static;
+            align-self: end;
+
+            img {
+                width: 130px;
+                height: auto;
+                object-position: top center;
+            }
+        }
+
+        .mk-btn--dark {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        &__huisstijl {
+            width: 400px;
+            height: 240px;
+            left: -60px;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        &__titel {
+            font-size: 26px;
+            line-height: 36px;
+        }
+
+        &__huisstijl {
+            display: none;
+        }
+    }
+}

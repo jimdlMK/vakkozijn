@@ -1,0 +1,14 @@
+{
+    "name": "mk/contact-info",
+    "title": "Contact info",
+    "category": "mediakanjers",
+    "icon": "email",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "mode": false
+    }
+}

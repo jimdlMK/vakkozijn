@@ -1,0 +1,230 @@
+.mk-hero {
+    position: relative;
+    min-height: 732px;
+
+    &--subpagina {
+        min-height: 470px;
+
+        .mk-hero__container {
+            padding-bottom: 160px;
+        }
+
+        .mk-hero__element {
+            height: 160px;
+        }
+    }
+
+    &--element-lichtgrijs {
+        .mk-hero__element img {
+            filter: brightness(0.97) sepia(0.04);
+        }
+    }
+
+    &--light-bg {
+        .mk-hero__overlay {
+            background: none;
+        }
+
+        .mk-hero__breadcrumb * {
+            color: $color-primary;
+        }
+
+        .mk-hero__breadcrumb a:hover {
+            color: $color-secondary;
+        }
+
+        .mk-hero__title,
+        .mk-hero__tekst {
+            color: $color-primary;
+        }
+    }
+
+    // Mini hoogte — contact/smalle subpagina's
+    &--mini {
+        min-height: 240px;
+
+        .mk-hero__container {
+            padding-bottom: 80px;
+            padding-top: 32px;
+            justify-content: flex-end;
+        }
+
+        .mk-hero__content {
+            margin-top: 0;
+        }
+
+        .mk-hero__breadcrumb {
+            top: 32px;
+        }
+
+        .mk-hero__element {
+            height: 80px;
+        }
+    }
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+
+    // ─── Gradient overlay ──────────────────────────────────────────────────────
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(270deg, #ffffff00 0%, rgba(0, 0, 0, 0.36) 70%, #000000 100%);
+        mix-blend-mode: multiply;
+        z-index: 1;
+    }
+
+    // ─── Content container ─────────────────────────────────────────────────────
+    &__container {
+        position: relative;
+        z-index: 2;
+        max-width: $layout-content-size;
+        width: $layout-maxwidth;
+        margin: auto;
+        padding: 48px $custom-container-padding 280px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+    }
+
+    // ─── Breadcrumb ────────────────────────────────────────────────────────────
+    &__breadcrumb {
+        position: absolute;
+        top: 48px;
+        left: $custom-container-padding;
+
+        // Override breadcrumb styling for hero (wit op donker)
+        * {
+            font-family: $font-family-body;
+            font-size: $font-size-normal;
+            font-weight: $font-weight-normal;
+            line-height: $line-height-normal;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $color-secondary;
+        }
+    }
+
+    // ─── Content ───────────────────────────────────────────────────────────────
+    &__content {
+        margin-top: 75px;
+        max-width: 640px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    &__subtitle {
+        display: inline-block;
+        background-color: $color-primary;
+        padding: 0 10px;
+        font-family: $font-family-heading;
+        font-size: $font-size-tag;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: 1.35px;
+        text-transform: uppercase;
+        color: #d4c500;
+    }
+
+    &__title {
+        font-family: $font-family-heading;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 58px;
+        letter-spacing: 0;
+        color: #ffffff;
+        margin: 0;
+    }
+
+    &__tekst {
+        font-family: $font-family-body;
+        font-size: $font-size-intro;
+        font-weight: $font-weight-intro;
+        line-height: $line-height-intro;
+        color: #ffffff;
+        margin: 0;
+    }
+
+    // ─── Huisstijl element (overlap onderkant) ─────────────────────────────────
+    &__element {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 248px;
+        z-index: 3;
+        pointer-events: none;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top left;
+            display: block;
+        }
+    }
+
+    // ─── Responsive ────────────────────────────────────────────────────────────
+    @media screen and (max-width: 980px) {
+        min-height: 480px;
+
+        &__container {
+            padding: 32px $custom-container-padding 200px;
+        }
+
+        &__title {
+            font-size: 22px;
+            line-height: 32px;
+        }
+
+        &__tekst {
+            font-size: $font-size-normal;
+        }
+
+        &__element {
+            height: 75px;
+        }
+
+        &--subpagina {
+            min-height: 280px;
+
+            .mk-hero__container {
+                padding-bottom: 100px;
+            }
+
+            .mk-hero__element {
+                display: none;
+            }
+        }
+
+        &--mini {
+            min-height: 180px;
+
+            .mk-hero__container {
+                padding-top: 24px;
+                padding-bottom: 60px;
+            }
+
+            .mk-hero__element {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        min-height: 380px;
+
+        &__container {
+            padding: 24px $custom-container-padding 100px;
+        }
+    }
+}
