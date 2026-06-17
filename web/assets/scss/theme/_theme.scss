@@ -175,6 +175,12 @@ a.white {
     padding-bottom: 0px !important;
 }
 
+@media screen and (max-width: 980px) {
+    .paddingbottom0 {
+        padding-bottom: 40px !important;
+    }
+}
+
 // ─── Mobiele typografie ────────────────────────────────────────────────────────
 @media screen and (max-width: 980px) {
     h1 {
