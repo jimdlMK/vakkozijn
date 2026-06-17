@@ -172,3 +172,27 @@ a.white {
 .paddingbottom0 {
     padding-bottom: 0px !important;
 }
+
+// ─── Mobiele typografie ────────────────────────────────────────────────────────
+@media screen and (max-width: 980px) {
+    h1 {
+        font-size: 22px;
+        line-height: 1.35;
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 1.35;
+    }
+
+    h3 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .intro,
+    p.intro {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+}

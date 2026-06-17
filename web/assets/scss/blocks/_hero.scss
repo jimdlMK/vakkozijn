@@ -193,6 +193,31 @@
         &__element {
             height: 75px;
         }
+
+        &--subpagina {
+            min-height: 280px;
+
+            .mk-hero__container {
+                padding-bottom: 100px;
+            }
+
+            .mk-hero__element {
+                display: none;
+            }
+        }
+
+        &--mini {
+            min-height: 180px;
+
+            .mk-hero__container {
+                padding-top: 24px;
+                padding-bottom: 60px;
+            }
+
+            .mk-hero__element {
+                display: none;
+            }
+        }
     }
 
     @media screen and (max-width: 640px) {

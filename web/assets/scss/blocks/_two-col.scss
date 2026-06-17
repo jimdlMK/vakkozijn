@@ -79,10 +79,10 @@
         margin: 0 0 8px;
         line-height: 1.2;
 
-        h1#{&} { font-size: $h1-font-size; line-height: $h1-line-height; }
-        h2#{&} { font-size: $h2-font-size; line-height: $h2-line-height; }
-        h3#{&} { font-size: $h3-font-size; line-height: $h3-line-height; }
-        h4#{&} { font-size: $h4-font-size; line-height: $h4-line-height; }
+        @at-root h1#{&} { font-size: $h1-font-size; line-height: $h1-line-height; }
+        @at-root h2#{&} { font-size: $h2-font-size; line-height: $h2-line-height; }
+        @at-root h3#{&} { font-size: $h3-font-size; line-height: $h3-line-height; }
+        @at-root h4#{&} { font-size: $h4-font-size; line-height: $h4-line-height; }
     }
 
     &__tekst {
@@ -136,6 +136,11 @@
             gap: 32px;
         }
 
+        &__title {
+            @at-root h1#{&} { font-size: 22px; line-height: 1.35; }
+            @at-root h2#{&} { font-size: 20px; line-height: 1.35; }
+            @at-root h3#{&} { font-size: 18px; line-height: 1.4; }
+        }
     }
 }
 

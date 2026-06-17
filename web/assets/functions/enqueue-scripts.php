@@ -21,3 +21,6 @@ function mk_enqueue_scripts() {
     wp_enqueue_script( 'swiper-js' );
 }
 add_action( 'wp_enqueue_scripts', 'mk_enqueue_scripts' );
+
+
+
