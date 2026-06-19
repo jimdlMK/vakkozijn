@@ -28,7 +28,7 @@ $img_uri    = get_stylesheet_directory_uri() . '/dist/images';
                     <div class="mk-team__portret">
                         <?php echo wp_get_attachment_image(
                             $portret['ID'],
-                            'large',
+                            'mk-team-portret',
                             false,
                             [ 'alt' => $portret['alt'] ?: $naam ]
                         ); ?>

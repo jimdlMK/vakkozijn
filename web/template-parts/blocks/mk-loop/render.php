@@ -23,7 +23,7 @@ if ( ! $posts ) return;
                 $link    = get_permalink( $id );
                 $title   = get_the_title( $id );
                 $img_id  = get_post_thumbnail_id( $id );
-                $img_url = $img_id ? wp_get_attachment_image_url( $img_id, 'large' ) : '';
+                $img_url = $img_id ? wp_get_attachment_image_url( $img_id, 'mk-loop-afbeelding' ) : '';
                 $img_alt = $img_id ? get_post_meta( $img_id, '_wp_attachment_image_alt', true ) : $title;
             ?>
             <div class="swiper-slide">

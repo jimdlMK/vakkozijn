@@ -44,6 +44,7 @@
     &__portret {
         width: 220px;
         height: auto;
+        aspect-ratio: 220 / 296; // <-- Voeg dit toe!
         overflow: hidden;
         flex-shrink: 0;
 
