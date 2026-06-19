@@ -59,7 +59,7 @@ $logo_url = get_field('logo', 'options');
 </header>
 
 <?php if ( $phone ) : ?>
-<a class="mk-floating-btn" href="tel:<?php echo esc_attr( preg_replace('/\s+/', '', $phone) ); ?>" aria-label="Bel voor een offerte">
+<a class="mk-floating-btn" href="/contact" aria-label="Bel voor een offerte">
     <span class="mk-floating-btn__icon">
         <span>
             <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/phone-icon-black.svg' ); ?>" alt="Bel voor een offerte">

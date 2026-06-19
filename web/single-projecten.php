@@ -74,8 +74,9 @@ $img_uri_hero = get_stylesheet_directory_uri() . '/dist/images';
                 <?php foreach ( $gallery as $image ) : ?>
                 <div class="swiper-slide mk-project-gallery__slide">
                     <a href="<?php echo esc_url( $image['url'] ); ?>"
-                       data-fancybox="gallery-<?php echo get_the_ID(); ?>"
-                       <?php if ( $image['caption'] ) : ?>data-caption="<?php echo esc_attr( $image['caption'] ); ?>"<?php endif; ?>>
+                       class="glightbox"
+                       data-gallery="gallery-<?php echo get_the_ID(); ?>"
+                       <?php if ( $image['caption'] ) : ?>data-description="<?php echo esc_attr( $image['caption'] ); ?>"<?php endif; ?>>
                         <img src="<?php echo esc_url( isset( $image['sizes']['large'] ) ? $image['sizes']['large'] : $image['url'] ); ?>"
                              alt="<?php echo esc_attr( $image['alt'] ); ?>">
                     </a>
