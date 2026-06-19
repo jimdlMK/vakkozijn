@@ -37,10 +37,15 @@
         }
 
         &--afbeelding {
+            
             img {
+                max-width: 555px;
                 width: 100%;
-                height: auto;
+                min-height: 310px;
+                object-fit: cover;
+                height: 100%;
                 display: block;
+                margin: 0 auto;
             }
         }
 
