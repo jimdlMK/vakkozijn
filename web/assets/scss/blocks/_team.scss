@@ -192,8 +192,8 @@
         }
 
         &__pagination {
+            bottom: 0 !important;
             display: block;
-            margin-top: 24px;
             text-align: center;
 
             .swiper-pagination-bullet {
@@ -201,6 +201,10 @@
                 opacity: 0.3;
             }
             .swiper-pagination-bullet-active { opacity: 1; }
+        }
+
+        .swiper-pagination {
+            position: relative !important;
         }
     }
 }
