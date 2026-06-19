@@ -67,10 +67,14 @@
     &__nav {
         max-width: 900px;
         width: $layout-maxwidth;
-        margin: 0 auto 24px;
+        margin: 0 auto 50px;
         display: flex;
         justify-content: flex-end;
         gap: 20px;
+
+        @media screen and (max-width: 980px) {
+            margin-top: 80px;
+        }
     }
 
     &__prev,
