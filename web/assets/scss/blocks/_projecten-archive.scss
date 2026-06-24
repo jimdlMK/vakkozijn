@@ -1,6 +1,21 @@
 .mk-projecten-grid {
     padding: 60px 0 80px;
 
+    // ─── Loading state ─────────────────────────────────────────────────────────
+    &--loading &__inner {
+        opacity: 0.4;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+    }
+
+    // ─── Filter wrapper ────────────────────────────────────────────────────────
+    &__filter {
+        max-width: $layout-content-size;
+        width: $layout-maxwidth;
+        margin: 0 auto 40px;
+    }
+
+
     // ─── Grid ──────────────────────────────────────────────────────────────────
     &__inner {
         max-width: $layout-content-size;
@@ -142,6 +157,124 @@
 
         &__image {
             height: 56vw;
+        }
+    }
+}
+
+// ─── Custom filter dropdown ────────────────────────────────────────────────────
+.mk-projecten-filter {
+    position: relative;
+    display: inline-block;
+
+    // ─── Trigger knop (zelfde opbouw als mk-btn) ──────────────────────────────
+    &__trigger {
+        display: inline-flex;
+        align-items: stretch;
+        background-color: $color-primary;
+        color: #ffffff;
+        border: 0;
+        cursor: pointer;
+        font-family: $font-family-body;
+        font-size: $font-size-normal;
+        font-weight: $font-weight-normal;
+        line-height: 1;
+        text-align: left;
+        padding: 0;
+        transition: background-color 0.2s ease;
+        min-width: 260px;
+
+        &:hover {
+            background-color: $color-dark;
+        }
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        padding: 14px 20px;
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 48px;
+        background-color: $color-secondary;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        margin: 5px 5px 5px 0;
+
+        img {
+            width: 13px;
+            height: auto;
+            display: block;
+            transform: rotate(90deg);
+            transition: transform 0.2s ease;
+            filter: brightness(0); // zwart icoon op gele achtergrond
+        }
+    }
+
+    // ─── Open staat ───────────────────────────────────────────────────────────
+    &.is-open &__trigger {
+        background-color: $color-dark;
+    }
+
+    &.is-open &__arrow {
+        background-color: $color-accent-dark;
+
+        img {
+            transform: rotate(-90deg);
+        }
+    }
+
+    // ─── Dropdownlijst ────────────────────────────────────────────────────────
+    &__list {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        min-width: 100%;
+        background-color: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        list-style: none;
+        margin: 0;
+        padding: 4px 0;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-6px);
+        transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    &.is-open &__list {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    // ─── Opties ───────────────────────────────────────────────────────────────
+    &__option {
+        padding: 10px 20px;
+        font-family: $font-family-body;
+        font-size: $font-size-normal;
+        font-weight: $font-weight-normal;
+        color: $color-primary;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: $color-background-light;
+        }
+
+        &--active {
+            font-weight: 700;
+            background-color: $color-secondary;
+
+            &:hover {
+                background-color: $color-accent-dark;
+            }
         }
     }
 }
