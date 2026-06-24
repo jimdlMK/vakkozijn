@@ -181,7 +181,7 @@ $ps-arrow-w: 56px;
     }
 
     @media screen and (max-width: 768px) {
-        padding: 48px 0;
+        padding: 48px 0 0 0;
 
         &__header {
             flex-direction: column;
