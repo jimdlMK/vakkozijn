@@ -99,6 +99,7 @@
 
         &--phone::before { background-image: url('../images/phone-icon-black.svg'); }
         &--mail::before { background-image: url('../images/mail-icon-black.svg'); }
+        &--linkedin::before { background-image: url('../images/linkedin-icon-black.svg'); }
         
         &:hover { color: $color-secondary; }
     }

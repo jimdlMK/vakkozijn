@@ -22,6 +22,7 @@ $img_uri    = get_stylesheet_directory_uri() . '/dist/images';
                         $naam     = $mw['team_naam'];
                         $email    = $mw['team_email'];
                         $telefoon = $mw['team_telefoon'];
+                        $linkedin = $mw['team_linkedin'];
                     ?>
                     <div class="mk-team__card swiper-slide">
 
@@ -50,6 +51,12 @@ $img_uri    = get_stylesheet_directory_uri() . '/dist/images';
                             <?php if ( $telefoon ) : ?>
                             <a class="mk-team__link mk-team__link--phone" href="tel:<?php echo esc_attr( preg_replace('/\s+/', '', $telefoon) ); ?>">
                                 <span><?php echo esc_html( $telefoon ); ?></span>
+                            </a>
+                            <?php endif; ?>
+
+                            <?php if ( $linkedin ) : ?>
+                            <a class="mk-team__link mk-team__link--linkedin" href="<?php echo esc_url( $linkedin ); ?>" target="_blank" rel="noopener">
+                                <span>LinkedIn</span>
                             </a>
                             <?php endif; ?>
                         </div>

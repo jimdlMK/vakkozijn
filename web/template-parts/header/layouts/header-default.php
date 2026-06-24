@@ -65,6 +65,6 @@ $logo_url = get_field('logo', 'options');
             <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/phone-icon-black.svg' ); ?>" alt="Bel voor een offerte">
         </span>
     </span>
-    <span class="mk-floating-btn__label">Bel voor een offerte</span>
+    <span class="mk-floating-btn__label">Neem contact op</span>
 </a>
 <?php endif; ?>

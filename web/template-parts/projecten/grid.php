@@ -4,7 +4,7 @@ $img_uri = get_stylesheet_directory_uri() . '/dist/images';
 
 $query = new WP_Query([
     'post_type'      => 'projecten',
-    'posts_per_page' => 4,
+    'posts_per_page' => 12,
     'paged'          => $paged,
     'post_status'    => 'publish',
     'orderby'        => 'date',
