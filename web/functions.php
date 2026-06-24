@@ -15,5 +15,15 @@
             'top'
         );
     }, 20);
+
+
+    add_action( 'after_setup_theme', 'mk_custom_image_sizes' );
+function mk_custom_image_sizes() {
+    // Voor het Loop blok (4:3 verhouding, bijv. 660x495 voor retina scherpte)
+    add_image_size( 'mk-loop-afbeelding', 660, 495, true ); 
+
+    // Voor het Team blok (55:74 verhouding, bijv. 440x592 voor retina scherpte)
+    add_image_size( 'mk-team-portret', 440, 592, true ); 
+}
     
 ?>

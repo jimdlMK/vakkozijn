@@ -6,22 +6,16 @@
             "key": "field_options_kvk",
             "label": "KVK-nummer",
             "name": "kvk",
-            "aria-label": "",
             "type": "text",
             "instructions": "KVK-nummer van het bedrijf",
             "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         }
+        
     ],
     "location": [
         [
@@ -37,12 +31,8 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "display_title": "",
-    "allow_ai_access": false,
-    "ai_description": "",
-    "modified": 1781525374
+    "modified": 1750100000
 }

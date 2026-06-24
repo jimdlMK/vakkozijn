@@ -1,17 +1,27 @@
 <?php
-$phone    = get_field('telefoon', 'options');
-$email    = get_field('email', 'options');
-$img_uri  = get_stylesheet_directory_uri() . '/dist/images';
-$logo_url = get_field('logo', 'options');
+$phone      = get_field('telefoon', 'options');
+$email      = get_field('email', 'options');
+$img_uri    = get_stylesheet_directory_uri() . '/dist/images';
+$logo_url   = get_field('logo', 'options');
+$usp_actief = get_field('usp_actief', 'options');
+$usps       = get_field('usps', 'options');
 ?>
 <header class="mk-header">
 
     <div class="mk-header__topbar">
         <div class="mk-header__topbar__inner">
+            <?php if ( $usp_actief && ! empty( $usps ) ) : ?>
             <div class="mk-header__topbar__usp">
                 <img src="<?php echo esc_url( $img_uri . '/V-logo.svg' ); ?>" alt="" class="mk-header__topbar__usp__icon">
-                <span>Hoogwaardige kunststof kozijnen</span>
+                <div class="mk-usp-rotator">
+                    <?php foreach ( $usps as $index => $usp ) : ?>
+                    <span class="mk-usp-rotator__item<?php echo $index === 0 ? ' is-active' : ''; ?>">
+                        <?php echo esc_html( $usp['usp_tekst'] ); ?>
+                    </span>
+                    <?php endforeach; ?>
+                </div>
             </div>
+            <?php endif; ?>
             <div class="mk-header__topbar__contact">
                 <?php if ( $phone ) : ?>
                     <a href="tel:<?php echo esc_attr( $phone ); ?>" class="mk-header__topbar__contact__item">
@@ -59,12 +69,12 @@ $logo_url = get_field('logo', 'options');
 </header>
 
 <?php if ( $phone ) : ?>
-<a class="mk-floating-btn" href="tel:<?php echo esc_attr( preg_replace('/\s+/', '', $phone) ); ?>" aria-label="Bel voor een offerte">
+<a class="mk-floating-btn" href="/contact" aria-label="Bel voor een offerte">
     <span class="mk-floating-btn__icon">
         <span>
             <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/phone-icon-black.svg' ); ?>" alt="Bel voor een offerte">
         </span>
     </span>
-    <span class="mk-floating-btn__label">Bel voor een offerte</span>
+    <span class="mk-floating-btn__label">Neem contact op</span>
 </a>
 <?php endif; ?>

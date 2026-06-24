@@ -1,5 +1,6 @@
 /* ===== THEME ===== */
 @import "theme/_theme-vars.scss";
+@import "theme/_custom-vars.scss";
 @import "theme/_theme.scss";
 
 /* ===== LAYOUT ===== */
@@ -37,3 +38,7 @@
     @import "blocks/_projecten-single.scss";
     @import "blocks/_image-slider.scss";
     @import "blocks/_mk-breadcrumbs.scss";
+    @import "blocks/_kaarten-grid.scss";
+
+/* ===== RESPONSIVE (centrale overrides) ===== */
+@import "layout/_responsive.scss";

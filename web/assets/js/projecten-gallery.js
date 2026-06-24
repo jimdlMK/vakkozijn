@@ -20,5 +20,9 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.mk-project-gallery').forEach(initProjectGallery);
+
+        if (typeof GLightbox !== 'undefined') {
+            GLightbox({ selector: '.glightbox' });
+        }
     });
 })();

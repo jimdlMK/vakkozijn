@@ -1,0 +1,511 @@
+// =============================================================================
+// RESPONSIVE OVERRIDES — Mediakanjers Theme
+// =============================================================================
+// Alle responsieve aanpassingen staan hier centraal, gegroepeerd per blok.
+// Breakpoints (zie _custom-vars.scss):
+//   $bp-laptop  1200px  — kleine laptops & landscape tablets
+//   $bp-tablet   980px  — portrait tablets
+//   $bp-mobile   767px  — mobiel
+//   $bp-small    640px  — klein mobiel
+//
+// Elk blok heeft zijn eigen basisstijlen. Dit bestand voegt alleen toe of
+// overschrijft waar nodig — geen complete blok-herschrijvingen.
+// =============================================================================
+
+
+// =============================================================================
+// HEADER
+// =============================================================================
+
+// ─── 1200px: Compacter desktop nav ───────────────────────────────────────────
+@media screen and (max-width: $bp-laptop) {
+    .mk-header {
+        &__main__logo img {
+            width: 180px;
+        }
+
+        &__topbar {
+            &__inner {
+                // Verberg contact-items tekst, houd iconen
+                &__contact__item span {
+                    display: none;
+                }
+            }
+
+            &__usp {
+                // USP tekst iets kleiner
+                span { font-size: 8px; }
+            }
+        }
+    }
+
+    // Nav menu iets dichter op elkaar
+    .mk-header-menu {
+        > ul > li {
+            > a { padding-left: 10px; padding-right: 10px; }
+        }
+    }
+}
+
+// ─── 980px: Hamburger menu (al aanwezig in _header.scss) ─────────────────────
+// Aanvulling: topbar contact volledig verbergen op tablet
+@media screen and (max-width: $bp-tablet) {
+    .mk-header {
+        &__topbar__inner {
+            grid-template-columns: 1fr auto; // USP centraal, contact weg
+        }
+
+        &__topbar__contact {
+            display: none; // Te weinig ruimte naast USP op tablet
+        }
+    }
+}
+
+// ─── 767px: Topbar verbergen op mobiel ───────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-header {
+        &__topbar {
+            display: none; // Geeft ruimte terug; USP-bar onzichtbaar op klein scherm
+        }
+
+        &__main__inner {
+            padding: 12px $custom-container-padding;
+        }
+
+        &__mobile-actions {
+            gap: 8px;
+        }
+
+        // Telefoon-icon in mobiele header: minimaal 44×44px touch target
+        &__mobile-phone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: $touch-target;
+            min-height: $touch-target;
+        }
+    }
+
+    // Hamburger touch target vergroten
+    .open-mobile-menu {
+        min-width: $touch-target;
+        min-height: $touch-target;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // Floating btn verborgen op klein scherm (al in _header.scss op 640px)
+    .mk-floating-btn {
+        display: none;
+    }
+}
+
+
+// =============================================================================
+// HERO
+// =============================================================================
+
+// ─── 1200px: Iets minder hoog ────────────────────────────────────────────────
+@media screen and (max-width: $bp-laptop) {
+    .mk-hero {
+        min-height: 600px;
+
+        &__title {
+            font-size: $fluid-h1; // Vloeiend schalen
+        }
+
+        &--subpagina { min-height: 380px; }
+    }
+}
+
+// ─── 767px: Mobiele hero aanpassingen ────────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-hero {
+        min-height: 420px;
+
+        &__container {
+            padding: 20px $custom-container-padding 80px;
+        }
+
+        &__title {
+            font-size: clamp(22px, 5vw, 28px);
+            line-height: 1.25;
+        }
+
+        &__tekst {
+            font-size: $font-size-normal;
+        }
+
+        &__content {
+            margin-top: 70px;
+            gap: 12px;
+        }
+
+        &--subpagina {
+            min-height: 220px;
+        }
+
+        &--mini {
+            min-height: 160px;
+        }
+    }
+}
+
+
+// =============================================================================
+// CTA BLOK
+// =============================================================================
+
+// ─── 1200px: Afbeelding iets kleiner ─────────────────────────────────────────
+@media screen and (max-width: $bp-laptop) {
+    .mk-cta {
+        &__afbeelding img {
+            width: 260px;
+            height: auto;
+        }
+
+        &__titel {
+            font-size: $fluid-h2;
+        }
+    }
+}
+
+// ─── 767px: Afbeelding weg, content als losse kolom ──────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-cta {
+        // Reset het 980px grid (dat was opgezet voor titel/tekst/afb naast elkaar)
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 16px;
+            height: auto;
+        }
+
+        // display:contents reset → gewone flex kolom
+        &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            gap: 12px;
+            width: 100%;
+        }
+
+        &__titel {
+            font-size: clamp(22px, 5vw, 28px);
+            line-height: 1.3;
+            text-align: left;
+        }
+
+        &__tekst {
+            text-align: left;
+        }
+
+        .mk-btn--dark {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        &__afbeelding {
+            display: none;
+        }
+    }
+}
+
+
+// =============================================================================
+// TWO-COL BLOK
+// =============================================================================
+
+// ─── 1024px: Gat verkleinen ───────────────────────────────────────────────────
+@media screen and (max-width: 1024px) {
+    .mk-two-col {
+        &__inner {
+            gap: 32px;
+        }
+    }
+}
+
+// ─── 640px: Padding aanpassen, heading fluid ─────────────────────────────────
+@media screen and (max-width: $bp-small) {
+    .mk-two-col {
+        padding: $space-lg 0;
+
+        &__title {
+            @at-root h1#{&} { font-size: clamp(22px, 5vw, 28px); }
+            @at-root h2#{&} { font-size: clamp(20px, 4.5vw, 26px); }
+            @at-root h3#{&} { font-size: clamp(18px, 4vw, 22px); }
+        }
+
+        &__slot--partners {
+            margin-top: 32px;
+            gap: 16px;
+        }
+    }
+}
+
+
+// =============================================================================
+// TEAM BLOK
+// =============================================================================
+
+// ─── 1200px: Iets compacter ──────────────────────────────────────────────────
+@media screen and (max-width: $bp-laptop) {
+    .mk-team {
+        &__inner {
+            gap: 40px;
+        }
+
+        &__titel {
+            font-size: $fluid-h3;
+        }
+    }
+}
+
+// ─── 767px: Naam kleiner ─────────────────────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-team {
+        padding: 0 0 $space-lg;
+
+        &__naam {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        &__link {
+            font-size: 14px;
+            min-height: $touch-target;  // Touch target
+        }
+    }
+}
+
+
+// =============================================================================
+// IMAGE BANNER
+// =============================================================================
+
+// ─── 767px: Minder hoog ──────────────────────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-image-banner {
+        &--h-665 { height: 240px; }
+        &--h-571 { height: 220px; }
+    }
+}
+
+
+// =============================================================================
+// MK-LOOP (projecten / deuren-kozijnen)
+// =============================================================================
+
+// ─── 980px: 2-kol grid ───────────────────────────────────────────────────────
+@media screen and (max-width: $bp-tablet) {
+    .mk-loop__grid {
+        &[data-grid="3"],
+        &[data-grid="4"] {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+}
+
+// ─── 640px: 1-kol grid ───────────────────────────────────────────────────────
+@media screen and (max-width: $bp-small) {
+    .mk-loop {
+        padding: 0 0 $space-lg;
+    }
+
+    .mk-loop__grid {
+        &[data-grid="2"],
+        &[data-grid="3"],
+        &[data-grid="4"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
+}
+
+
+// =============================================================================
+// PROJECTEN ARCHIVE
+// =============================================================================
+
+// ─── 767px: Filter full-width ────────────────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-projecten-grid {
+        padding: $space-lg 0;
+
+        &__filter {
+            width: 100%;
+        }
+    }
+
+    .mk-projecten-filter {
+        width: 100%;
+
+        &__trigger {
+            width: 100%;
+            min-height: $touch-target;
+        }
+    }
+
+    // Paginering touch targets
+    .mk-projecten-grid__pagination {
+        ul { gap: 6px; }
+
+        li a,
+        li span {
+            min-width: $touch-target;
+            min-height: $touch-target;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+
+// =============================================================================
+// PROJECTEN SINGLE
+// =============================================================================
+
+// ─── 767px: Header compacter ─────────────────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-project-single {
+        &__header {
+            padding: 32px 0 40px;
+        }
+
+        &__title {
+            font-size: clamp(22px, 5vw, 28px);
+            line-height: 1.25;
+        }
+
+        &__content {
+            font-size: $font-size-normal;
+        }
+    }
+
+    // Gallery prev/next: grotere touch targets
+    .mk-project-gallery {
+        &__prev,
+        &__next {
+            min-width: $touch-target;
+            min-height: $touch-target;
+        }
+    }
+}
+
+
+// =============================================================================
+// KAARTEN GRID
+// =============================================================================
+
+// ─── 767px: Altijd 1-kol op mobiel ────────────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-kaarten-grid {
+        padding: $space-lg 0;
+
+        &__inner {
+            grid-template-columns: 1fr !important;
+        }
+    }
+}
+
+
+// =============================================================================
+// CONTACT INFO BLOCK
+// =============================================================================
+
+// ─── 1200px: Gap verkleinen ───────────────────────────────────────────────────
+@media screen and (max-width: $bp-laptop) {
+    .mk-contact-info-block {
+        &__inner {
+            gap: 48px;
+        }
+
+        &__titel {
+            font-size: $fluid-h2;
+        }
+    }
+}
+
+// ─── 767px: Actions stacked ──────────────────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-contact-info-block {
+        padding: $space-lg 0;
+
+        &__actions {
+            .mk-btn {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+
+// ─── 980px: Iets compacter ───────────────────────────────────────────────────
+@media screen and (max-width: $bp-tablet) {
+    .mk-footer {
+        &__container {
+            padding: $space-lg $custom-container-padding $space-md;
+        }
+    }
+}
+
+// ─── 767px: Footer aanpassingen ──────────────────────────────────────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-footer {
+        &__container {
+            padding: $space-md $custom-container-padding 32px;
+
+            &__inner {
+                gap: 28px;
+            }
+        }
+
+        &__logo {
+            width: 200px;
+        }
+
+        &__col__tekst {
+            font-size: $font-size-normal;
+        }
+    }
+}
+
+
+// =============================================================================
+// KNOPPEN & INTERACTIEVE ELEMENTEN (globaal)
+// =============================================================================
+
+// ─── 767px: Buttons full-width op mobiel (opt-in via modifier) ───────────────
+@media screen and (max-width: $bp-mobile) {
+    .mk-btn--full-mobile {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    // Alle buttons minimaal 44px hoog (touch target)
+    .mk-btn {
+        min-height: $touch-target;
+    }
+}
+
+
+// =============================================================================
+// TYPOGRAFIE GLOBAAL (fluid headings in de content)
+// =============================================================================
+
+// Fluid headings voor body content (buiten blocks, in .entry-content etc.)
+@media screen and (max-width: $bp-laptop) {
+    h1 { font-size: $fluid-h1; }
+    h2 { font-size: $fluid-h2; }
+    h3 { font-size: $fluid-h3; }
+    h4 { font-size: $fluid-h4; }
+}

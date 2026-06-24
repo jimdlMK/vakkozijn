@@ -15,49 +15,56 @@ $img_uri    = get_stylesheet_directory_uri() . '/dist/images';
             <?php endif; ?>
 
             <?php if ( $medewerkers ) : ?>
-            <div class="mk-team__grid">
-                <?php foreach ( $medewerkers as $mw ) :
-                    $portret = $mw['team_portret'];
-                    $naam    = $mw['team_naam'];
-                    $email   = $mw['team_email'];
-                    $telefoon = $mw['team_telefoon'];
-                ?>
-                <div class="mk-team__card">
+            <div class="mk-team__swiper swiper">
+                <div class="mk-team__grid swiper-wrapper">
+                    <?php foreach ( $medewerkers as $mw ) :
+                        $portret  = $mw['team_portret'];
+                        $naam     = $mw['team_naam'];
+                        $email    = $mw['team_email'];
+                        $telefoon = $mw['team_telefoon'];
+                        $linkedin = $mw['team_linkedin'];
+                    ?>
+                    <div class="mk-team__card swiper-slide">
 
-                    <?php if ( $portret ) : ?>
-                    <div class="mk-team__portret">
-                        <img src="<?php echo esc_url( $portret['url'] ); ?>"
-                             alt="<?php echo esc_attr( $portret['alt'] ?: $naam ); ?>"
-                             width="220" height="296">
-                    </div>
-                    <?php endif; ?>
-
-                    <?php if ( $naam ) : ?>
-                    <p class="mk-team__naam"><?php echo esc_html( $naam ); ?></p>
-                    <?php endif; ?>
-
-                    <div class="mk-team__contact">
-                        <?php if ( $email ) : ?>
-                        <a class="mk-team__link" href="mailto:<?php echo esc_attr( $email ); ?>">
-                            <span class="mk-team__icon">
-                                <img src="<?php echo esc_url( $img_uri . '/mail-icon-black.svg' ); ?>" alt="">
-                            </span>
-                            <span><?php echo esc_html( $email ); ?></span>
-                        </a>
+                        <?php if ( $portret ) : ?>
+                        <div class="mk-team__portret">
+                            <?php echo wp_get_attachment_image(
+                                $portret['ID'],
+                                'mk-team-portret',
+                                false,
+                                [ 'alt' => $portret['alt'] ?: $naam ]
+                            ); ?>
+                        </div>
                         <?php endif; ?>
 
-                        <?php if ( $telefoon ) : ?>
-                        <a class="mk-team__link" href="tel:<?php echo esc_attr( preg_replace('/\s+/', '', $telefoon) ); ?>">
-                            <span class="mk-team__icon">
-                                <img src="<?php echo esc_url( $img_uri . '/phone-icon-black.svg' ); ?>" alt="">
-                            </span>
-                            <span><?php echo esc_html( $telefoon ); ?></span>
-                        </a>
+                        <?php if ( $naam ) : ?>
+                        <p class="mk-team__naam"><?php echo esc_html( $naam ); ?></p>
                         <?php endif; ?>
-                    </div>
 
+                        <div class="mk-team__contact">
+                            <?php if ( $email ) : ?>
+                            <a class="mk-team__link mk-team__link--mail" href="mailto:<?php echo esc_attr( $email ); ?>">
+                                <span><?php echo esc_html( $email ); ?></span>
+                            </a>
+                            <?php endif; ?>
+
+                            <?php if ( $telefoon ) : ?>
+                            <a class="mk-team__link mk-team__link--phone" href="tel:<?php echo esc_attr( preg_replace('/\s+/', '', $telefoon) ); ?>">
+                                <span><?php echo esc_html( $telefoon ); ?></span>
+                            </a>
+                            <?php endif; ?>
+
+                            <?php if ( $linkedin ) : ?>
+                            <a class="mk-team__link mk-team__link--linkedin" href="<?php echo esc_url( $linkedin ); ?>" target="_blank" rel="noopener">
+                                <span>LinkedIn</span>
+                            </a>
+                            <?php endif; ?>
+                        </div>
+
+                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
+                <div class="swiper-pagination mk-team__pagination"></div>
             </div>
             <?php endif; ?>
 

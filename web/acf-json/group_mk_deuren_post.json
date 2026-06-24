@@ -1,0 +1,32 @@
+{
+    "key": "group_mk_deuren_post",
+    "title": "Deuren & Kozijnen velden",
+    "fields": [
+        {
+            "key": "field_deuren_link",
+            "label": "PDF of link",
+            "name": "deuren_link",
+            "type": "link",
+            "return_format": "array",
+            "instructions": "Koppel een PDF uit de medialibrary of een externe URL. Zet doel op 'Nieuw tabblad'."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "deuren-kozijnen"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1750000000
+}

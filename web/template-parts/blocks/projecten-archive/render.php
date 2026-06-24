@@ -1,7 +1,14 @@
 <?php
-$per_page = (int) ( get_field('pa_per_pagina') ?: 4 );
+$per_page = (int) ( get_field('pa_per_pagina') ?: 12 );
 $paged    = max( 1, get_query_var('paged') ?: get_query_var('page') );
 $img_uri  = get_stylesheet_directory_uri() . '/dist/images';
+
+$terms = get_terms([
+    'taxonomy'   => 'project-categorie',
+    'hide_empty' => true,
+    'orderby'    => 'name',
+    'order'      => 'ASC',
+]);
 
 $query = new WP_Query([
     'post_type'      => 'projecten',
@@ -12,10 +19,32 @@ $query = new WP_Query([
     'order'          => 'DESC',
 ]);
 
-if ( ! $query->have_posts() ) return;
+if ( ! $query->have_posts() && empty( $terms ) ) return;
 ?>
 
-<section class="mk-projecten-grid">
+<section class="mk-projecten-grid" data-per-page="<?php echo esc_attr( $per_page ); ?>">
+
+    <?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
+    <div class="mk-projecten-grid__filter">
+        <div class="mk-projecten-filter" data-filter>
+            <button class="mk-projecten-filter__trigger" aria-expanded="false" aria-haspopup="listbox" type="button">
+                <span class="mk-projecten-filter__label">Alle projecten</span>
+                <span class="mk-projecten-filter__arrow" aria-hidden="true">
+                    <img src="<?php echo esc_url( $img_uri . '/Icon feather-arrow-right.svg' ); ?>" alt="">
+                </span>
+            </button>
+            <ul class="mk-projecten-filter__list" role="listbox">
+                <li class="mk-projecten-filter__option mk-projecten-filter__option--active" data-value="" role="option" aria-selected="true">Alle projecten</li>
+                <?php foreach ( $terms as $term ) : ?>
+                <li class="mk-projecten-filter__option" data-value="<?php echo esc_attr( $term->slug ); ?>" role="option" aria-selected="false">
+                    <?php echo esc_html( $term->name ); ?>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <div class="mk-projecten-grid__inner">
         <?php while ( $query->have_posts() ) : $query->the_post();
             $link    = get_permalink();

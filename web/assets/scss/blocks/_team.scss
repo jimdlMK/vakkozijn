@@ -1,7 +1,8 @@
 .mk-team {
-    padding: 0px 0 80px;
+    padding: 0 0 80px;
     background-color: #f6f6f4;
-    // ─── Outer wrapper (content-width) ────────────────────────────────────────
+
+    // ─── Outer wrapper ────────────────────────────────────────
     &__inner {
         max-width: $layout-content-size;
         width: $layout-maxwidth;
@@ -11,7 +12,7 @@
         gap: 60px;
     }
 
-    // ─── Left column ──────────────────────────────────────────────────────────
+    // ─── Left column (Bevat titel & team) ─────────────────────
     &__left {
         flex: 1;
         min-width: 0;
@@ -26,24 +27,21 @@
         margin: 0 0 32px;
     }
 
-    // ─── Medewerkers grid ─────────────────────────────────────────────────────
-    &__grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 32px 24px;
-    }
-
+    // ─── Medewerkers Layout ───────────────────────────────────
     &__card {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        // Basis: links uitlijnen voor desktop grid
+        align-items: flex-start; 
         gap: 0;
+        text-align: left; // Basis
     }
 
-    // ─── Portret ──────────────────────────────────────────────────────────────
+    // ─── Portret Base & Desktop ───────────────────────────────
     &__portret {
         width: 220px;
-        height: 296px;
+        height: auto;
+        aspect-ratio: 220 / 296;
         overflow: hidden;
         flex-shrink: 0;
 
@@ -56,7 +54,7 @@
         }
     }
 
-    // ─── Naam ─────────────────────────────────────────────────────────────────
+    // ─── Naam & Contact Base ──────────────────────────────────
     &__naam {
         font-family: $font-family-heading;
         font-size: 15px;
@@ -65,20 +63,21 @@
         letter-spacing: 0;
         color: #000000;
         margin: 0;
-        width: 220px;
+        width: 100%; // Breedte aanpassen
+        max-width: 220px;
     }
 
-    // ─── Contact links ────────────────────────────────────────────────────────
     &__contact {
         display: flex;
         flex-direction: column;
         gap: 6px;
+        width: 100%; // Nodig voor centreren op mobiel
     }
 
     &__link {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         text-decoration: none;
         font-family: $font-family-body;
         font-size: 16px;
@@ -87,88 +86,126 @@
         letter-spacing: 0;
         color: #000000;
 
-        &:hover {
-            color: $color-primary;
-
-            .mk-team__icon {
-                background-color: $color-accent-dark;
-            }
-        }
-    }
-
-    &__icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        width: 32px;
-        height: 32px;
-        background-color: $color-secondary;
-        transition: background-color 0.2s ease;
-
-        img {
-            width: 14px;
-            height: auto;
+        &::before {
+            content: "";
             display: block;
-            filter: brightness(0) invert(1); // zwart icon → wit
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 32px auto;
         }
+
+        &--phone::before { background-image: url('../images/phone-icon-black.svg'); }
+        &--mail::before { background-image: url('../images/mail-icon-black.svg'); }
+        &--linkedin::before { background-image: url('../images/linkedin-icon-black.svg'); }
+        
+        &:hover { color: $color-secondary; }
     }
 
-    // ─── Rechter afbeelding ───────────────────────────────────────────────────
+    // ─── Rechter afbeelding Base & Desktop ───────────────────
     &__right {
         flex-shrink: 0;
         width: 631px;
         margin-top: -15px;
 
         img {
-            width: 631px;
-            height: 352px;
-            object-fit: cover;
+            width: 100%;
+            height: auto; // Laat aspect ratio vrij
             display: block;
         }
     }
 
-    // ─── Responsive ───────────────────────────────────────────────────────────
-    @media screen and (max-width: 1200px) {
-        &__right {
-            width: 400px;
+    // ==========================================================================
+    // ─── DESKTOP (Grid van 3) > 640px
+    // ==========================================================================
+    @media screen and (min-width: 641px) {
+        &__swiper { overflow: visible; }
 
-            img {
-                width: 400px;
-                height: 223px;
-            }
+        &__grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px 24px;
+            transform: none !important;
+            transition: none !important;
         }
+
+        &__card {
+            width: auto !important;
+            height: auto !important;
+        }
+
+        &__pagination { display: none; }
     }
 
-    @media screen and (max-width: 980px) {
+    // ==========================================================================
+    // ─── TABLET/LAPTOP (Grid aan, afbeelding eronder) < 1300px
+    // ==========================================================================
+    @media screen and (max-width: 1300px) {
         &__inner {
             flex-direction: column;
+            align-items: stretch;
+            gap: 40px;
         }
 
         &__right {
             width: 100%;
-
+            margin-top: 0;
+            
             img {
-                width: 100%;
                 height: auto;
-                max-height: 300px;
+                max-height: 400px; // Beperk hoogte
+                object-fit: contain; // Of 'cover' als je wilt vullen
             }
         }
     }
 
+    // ==========================================================================
+    // ─── MOBIEL (Swiper aan, 1 per keer, verkleind portret) <= 640px
+    // ==========================================================================
     @media screen and (max-width: 640px) {
-        &__grid {
+        &__inner {
             flex-direction: column;
-            gap: 32px;
+            gap: 40px;
         }
 
+
+
+        // --- NIEUW: Portret verkleinen en centreren ---
         &__portret {
-            width: 180px;
-            height: 242px;
+            height: auto; 
         }
 
         &__naam {
-            width: 180px;
+            max-width: 100%;
+            line-height: 1.4; // Iets compacter op mobiel
+            margin-top: 12px;
+        }
+
+        &__contact {
+            margin-top: 16px;
+        }
+
+        &__right {
+            width: 100%;
+            img { height: auto; }
+        }
+
+        &__pagination {
+            bottom: 0 !important;
+            display: block;
+            text-align: center;
+
+            .swiper-pagination-bullet {
+                background: $color-primary;
+                opacity: 0.3;
+            }
+            .swiper-pagination-bullet-active { opacity: 1; }
+        }
+
+        .swiper-pagination {
+            position: relative !important;
         }
     }
 }

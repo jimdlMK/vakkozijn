@@ -13,6 +13,7 @@
             grid-template-columns: 1fr auto 1fr;
             align-items: center;
             min-height: 44px;
+            overflow: hidden;
         }
 
         &__usp {
@@ -25,6 +26,7 @@
                 width: 24px;
                 height: auto;
                 display: block;
+                flex-shrink: 0;
             }
 
             span {
@@ -38,6 +40,53 @@
                 white-space: nowrap;
             }
         }
+    }
+}
+
+// ─── USP rotator ──────────────────────────────────────────────────────────────
+.mk-usp-rotator {
+    width: 100%;
+    max-width: 80vw;
+    position: relative;
+    overflow: hidden;
+    height: 1em;
+    display: flex;
+    align-items: center;
+
+    &__item {
+        position: absolute;
+        left: 0;
+        font-family: $font-family-heading;
+        font-size: $font-size-tag;
+        font-weight: $font-weight-tag;
+        letter-spacing: 1.35px;
+        text-transform: uppercase;
+        color: #ffffff;
+        line-height: 1;
+        white-space: nowrap;
+
+        // Standaard: onzichtbaar, rechts klaar
+        opacity: 0;
+        transform: translateX(24px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+
+        // Actief: volledig zichtbaar, op positie
+        &.is-active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        // Weggaan: naar links vliegen
+        &.is-leaving {
+            opacity: 0;
+            transform: translateX(-24px);
+        }
+    }
+}
+
+// Heropenen van de nesting voor de rest van de header
+.mk-header {
+    &__topbar {
 
         &__contact {
             grid-column: 3;
@@ -111,6 +160,7 @@
                 position: relative;
                 width: 25px;
                 height: 18px;
+                min-height: 18px !important;
                 cursor: pointer;
 
                 .lineone,
