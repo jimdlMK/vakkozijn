@@ -1,0 +1,14 @@
+{
+    "name": "mk/kaarten-grid",
+    "title": "Kaarten grid",
+    "category": "mediakanjers",
+    "icon": "grid-view",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "mode": false
+    }
+}

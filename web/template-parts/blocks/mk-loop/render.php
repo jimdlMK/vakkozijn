@@ -20,14 +20,25 @@ if ( ! $posts ) return;
         <div class="swiper-wrapper mk-loop__grid" data-grid="<?php echo esc_attr( $kolommen ); ?>">
             <?php foreach ( $posts as $post ) :
                 $id      = $post->ID;
-                $link    = get_permalink( $id );
                 $title   = get_the_title( $id );
                 $img_id  = get_post_thumbnail_id( $id );
                 $img_url = $img_id ? wp_get_attachment_image_url( $img_id, 'mk-loop-afbeelding' ) : '';
                 $img_alt = $img_id ? get_post_meta( $img_id, '_wp_attachment_image_alt', true ) : $title;
+
+                // Deuren-kozijnen: doorlinken naar PDF/link veld, anders post permalink
+                $deuren_link = get_field( 'deuren_link', $id );
+                $link        = $deuren_link
+                    ? ( is_array( $deuren_link ) ? $deuren_link['url'] : $deuren_link )
+                    : get_permalink( $id );
+                $target      = ( $deuren_link && is_array( $deuren_link ) && $deuren_link['target'] )
+                    ? $deuren_link['target']
+                    : ( $deuren_link ? '_blank' : '_self' );
             ?>
             <div class="swiper-slide">
-                <a href="<?php echo esc_url( $link ); ?>" class="mk-loop__card">
+                <a href="<?php echo esc_url( $link ); ?>"
+                   class="mk-loop__card"
+                   target="<?php echo esc_attr( $target ); ?>"
+                   <?php if ( $target === '_blank' ) : ?>rel="noopener"<?php endif; ?>>
                     <?php if ( $img_url ) : ?>
                     <div class="mk-loop__image">
                         <img src="<?php echo esc_url( $img_url ); ?>"
