@@ -5,7 +5,7 @@ $img_uri  = get_stylesheet_directory_uri() . '/dist/images';
 
 $terms = get_terms([
     'taxonomy'   => 'project-categorie',
-    'hide_empty' => true,
+    'hide_empty' => false,
     'orderby'    => 'name',
     'order'      => 'ASC',
 ]);

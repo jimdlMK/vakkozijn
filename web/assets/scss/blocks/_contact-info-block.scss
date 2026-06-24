@@ -2,22 +2,20 @@
     padding: 80px 0;
     background-color: #ffffff;
 
-    // ─── Inner: 2-kolom layout ────────────────────────────────────────────────
+    // ─── Inner: enkelvoudige kolom, links uitgelijnd ──────────────────────────
     &__inner {
         max-width: $layout-content-size;
         width: $layout-maxwidth;
         margin: 0 auto;
-        display: flex;
-        align-items: flex-start;
-        gap: 80px;
     }
 
-    // ─── Linker kolom ────────────────────────────────────────────────────────
-    &__left {
-        flex: 1;
+    // ─── Gegevens wrapper (titel + adres + acties) ────────────────────────────
+    &__gegevens-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        align-items: flex-start;
+        gap: 24px;
+        max-width: 480px;
     }
 
     &__titel {
@@ -124,18 +122,6 @@
     }
 
     // ─── Responsive ───────────────────────────────────────────────────────────
-    @media screen and (max-width: 980px) {
-        &__inner {
-            flex-direction: column;
-            gap: 48px;
-        }
-
-        &__right {
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-    }
-
     @media screen and (max-width: 640px) {
         padding: 60px 0;
 
@@ -147,10 +133,16 @@
         &__actions {
             flex-direction: column;
             align-items: flex-start;
+            width: 100%;
+
+            .mk-btn {
+                width: 100%;
+                justify-content: space-between;
+            }
         }
 
-        &__right {
-            flex-direction: column;
+        &__gegevens-wrapper {
+            max-width: 100%;
         }
     }
 }

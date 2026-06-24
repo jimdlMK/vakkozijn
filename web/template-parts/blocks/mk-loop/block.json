@@ -1,15 +1,15 @@
 {
     "name": "mk/product-loop",
     "title": "Product Loop",
-    "description": "Overzicht van een custom post type als grid (desktop) of slider (mobiel).",
-    "category": "layout",
+    "description": "Overzicht van project categorieën of posts als grid (desktop) of slider (mobiel).",
+    "category": "mediakanjers",
     "icon": "grid-view",
     "acf": {
-        "mode": "edit",
-        "renderTemplate": "template-parts/blocks/mk-loop/render.php"
+        "mode": "preview",
+        "renderTemplate": "render.php"
     },
     "supports": {
         "align": false,
-        "jsx": false
+        "mode": false
     }
 }

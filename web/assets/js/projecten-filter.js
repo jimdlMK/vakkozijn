@@ -15,6 +15,10 @@
         var perPage    = section.dataset.perPage || 12;
         var current    = '';
 
+        // ─── URL parameter bij pageload ──────────────────────────────────────
+        var urlParams   = new URLSearchParams(window.location.search);
+        var initFilter  = urlParams.get('categorie') || '';
+
         // ─── Dropdown open/dicht ─────────────────────────────────────────────
         function openDropdown() {
             filter.classList.add('is-open');
@@ -59,6 +63,22 @@
             });
         });
 
+        // ─── Activeer filter uit URL bij pageload ────────────────────────────
+        if ( initFilter ) {
+            options.forEach(function (o) {
+                if ( o.dataset.value === initFilter ) {
+                    o.classList.add('mk-projecten-filter__option--active');
+                    o.setAttribute('aria-selected', 'true');
+                    label.textContent = o.textContent.trim();
+                } else {
+                    o.classList.remove('mk-projecten-filter__option--active');
+                    o.setAttribute('aria-selected', 'false');
+                }
+            });
+            current = initFilter;
+            fetchProjecten(initFilter);
+        }
+
         // ─── AJAX fetch ──────────────────────────────────────────────────────
         function fetchProjecten(categorie) {
             section.classList.add('mk-projecten-grid--loading');
@@ -70,7 +90,10 @@
             data.append('per_page',  perPage);
 
             fetch(mkAjax.url, { method: 'POST', body: data })
-                .then(function (res) { return res.text(); })
+                .then(function (res) {
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    return res.text();
+                })
                 .then(function (html) {
                     grid.innerHTML = html;
                     if (pagination) {
@@ -78,7 +101,8 @@
                     }
                     section.classList.remove('mk-projecten-grid--loading');
                 })
-                .catch(function () {
+                .catch(function (err) {
+                    console.error('mk-filter fout:', err);
                     section.classList.remove('mk-projecten-grid--loading');
                 });
         }

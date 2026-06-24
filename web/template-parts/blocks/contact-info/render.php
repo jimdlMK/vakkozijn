@@ -19,40 +19,12 @@ global $stream_opts;
 <section class="mk-contact-info-block">
     <div class="mk-contact-info-block__inner">
 
-        <!-- Kolom 1: titel, knop, link -->
-        <div class="mk-contact-info-block__left">
+        <!-- Contactgegevens: links boven het formulier -->
+        <div class="mk-contact-info-block__gegevens-wrapper">
 
             <?php if ( $titel ) : ?>
                 <h2 class="mk-contact-info-block__titel"><?php echo esc_html( $titel ); ?></h2>
             <?php endif; ?>
-
-            <div class="mk-contact-info-block__actions">
-
-                <?php if ( $knop ) : ?>
-                <a class="mk-btn"
-                   href="<?php echo esc_url( $knop['url'] ); ?>"
-                   <?php echo $knop['target'] ? 'target="' . esc_attr( $knop['target'] ) . '"' : ''; ?>>
-                    <span class="mk-btn__label"><?php echo esc_html( $knop['title'] ); ?></span>
-                    <span class="mk-btn__arrow-box">
-                        <img src="<?php echo esc_url( $img_uri . '/Icon feather-arrow-right.svg' ); ?>" alt="">
-                    </span>
-                </a>
-                <?php endif; ?>
-
-                <?php if ( $link ) : ?>
-                <a class="mk-contact-info-block__link"
-                   href="<?php echo esc_url( $link['url'] ); ?>"
-                   <?php echo $link['target'] ? 'target="' . esc_attr( $link['target'] ) . '"' : ''; ?>>
-                    <span><?php echo esc_html( $link['title'] ); ?></span>
-                    <img src="<?php echo esc_url( $img_uri . '/Icon feather-arrow-right.svg' ); ?>" alt="">
-                </a>
-                <?php endif; ?>
-
-            </div>
-        </div>
-
-        <!-- Kolom 2: contactgegevens + socials -->
-        <div class="mk-contact-info-block__right">
 
             <div class="mk-contact-info-block__gegevens">
 
@@ -78,6 +50,30 @@ global $stream_opts;
 
                 <?php if ( $kvk ) : ?>
                     <span>KVK: <?php echo esc_html( $kvk ); ?></span>
+                <?php endif; ?>
+
+            </div>
+
+            <div class="mk-contact-info-block__actions">
+
+                <?php if ( $knop ) : ?>
+                <a class="mk-btn"
+                   href="<?php echo esc_url( $knop['url'] ); ?>"
+                   <?php echo $knop['target'] ? 'target="' . esc_attr( $knop['target'] ) . '"' : ''; ?>>
+                    <span class="mk-btn__label"><?php echo esc_html( $knop['title'] ); ?></span>
+                    <span class="mk-btn__arrow-box">
+                        <img src="<?php echo esc_url( $img_uri . '/Icon feather-arrow-right.svg' ); ?>" alt="">
+                    </span>
+                </a>
+                <?php endif; ?>
+
+                <?php if ( $link ) : ?>
+                <a class="mk-contact-info-block__link"
+                   href="<?php echo esc_url( $link['url'] ); ?>"
+                   <?php echo $link['target'] ? 'target="' . esc_attr( $link['target'] ) . '"' : ''; ?>>
+                    <span><?php echo esc_html( $link['title'] ); ?></span>
+                    <img src="<?php echo esc_url( $img_uri . '/Icon feather-arrow-right.svg' ); ?>" alt="">
+                </a>
                 <?php endif; ?>
 
             </div>

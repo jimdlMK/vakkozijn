@@ -58,7 +58,7 @@ add_action( 'wp_ajax_nopriv_mk_filter_projecten', 'mk_ajax_filter_projecten' );
 
 // ─── AJAX URL beschikbaar maken in JS ─────────────────────────────────────────
 add_action( 'wp_enqueue_scripts', function() {
-    wp_localize_script( 'swiper-js', 'mkAjax', [
+    wp_localize_script( 'mk-main-script', 'mkAjax', [
         'url'   => admin_url( 'admin-ajax.php' ),
         'nonce' => wp_create_nonce( 'mk_filter_projecten' ),
     ]);

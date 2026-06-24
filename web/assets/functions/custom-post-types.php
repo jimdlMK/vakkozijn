@@ -1,30 +1,5 @@
 <?php
 
-function mk_cpt_deuren_kozijnen() {
-    register_post_type('deuren-kozijnen', [
-        'public'        => true,
-        'has_archive'   => false,
-        'show_in_rest'  => false, // klassieke editor
-        'menu_icon'     => 'dashicons-admin-home',
-        'supports'      => ['title', 'thumbnail', 'editor'],
-        'rewrite'       => ['slug' => 'deuren-kozijnen'],
-        'labels'        => [
-            'name'               => 'Deuren & Kozijnen',
-            'singular_name'      => 'Deur / Kozijn',
-            'add_new'            => 'Nieuwe toevoegen',
-            'add_new_item'       => 'Nieuwe deur/kozijn toevoegen',
-            'edit_item'          => 'Bewerken',
-            'new_item'           => 'Nieuw',
-            'view_item'          => 'Bekijken',
-            'search_items'       => 'Zoeken',
-            'not_found'          => 'Niets gevonden',
-            'not_found_in_trash' => 'Niets gevonden in de prullenbak',
-            'menu_name'          => 'Deuren & Kozijnen',
-        ],
-    ]);
-}
-add_action('init', 'mk_cpt_deuren_kozijnen');
-
 
 function mk_cpt_projecten() {
     register_post_type('projecten', [

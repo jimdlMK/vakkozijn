@@ -8,10 +8,10 @@
             "name": "loop_post_type",
             "type": "radio",
             "choices": {
-                "deuren-kozijnen": "Deuren & Kozijnen",
+                "project-categorieen": "Project categorieën (kaarten)",
                 "projecten": "Projecten"
             },
-            "default_value": "deuren-kozijnen",
+            "default_value": "project-categorieen",
             "layout": "horizontal",
             "return_format": "value"
         },
