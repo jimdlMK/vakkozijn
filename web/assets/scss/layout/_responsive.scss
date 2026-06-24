@@ -484,16 +484,28 @@
 // KNOPPEN & INTERACTIEVE ELEMENTEN (globaal)
 // =============================================================================
 
-// ─── 767px: Buttons full-width op mobiel (opt-in via modifier) ───────────────
+// ─── 767px: Compactere knop op mobiel ────────────────────────────────────────
 @media screen and (max-width: $bp-mobile) {
+    .mk-btn {
+        font-size: 14px;
+
+        &__label {
+            padding: 11px 18px;
+        }
+
+        &__arrow-box {
+            margin: 7px 7px 7px 0;
+            padding: 9px 11px;
+
+            img {
+                width: 11px;
+            }
+        }
+    }
+
     .mk-btn--full-mobile {
         width: 100%;
         justify-content: space-between;
-    }
-
-    // Alle buttons minimaal 44px hoog (touch target)
-    .mk-btn {
-        min-height: $touch-target;
     }
 }
 
