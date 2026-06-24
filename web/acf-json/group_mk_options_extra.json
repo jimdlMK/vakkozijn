@@ -6,21 +6,55 @@
             "key": "field_options_kvk",
             "label": "KVK-nummer",
             "name": "kvk",
-            "aria-label": "",
             "type": "text",
             "instructions": "KVK-nummer van het bedrijf",
             "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_options_usp_actief",
+            "label": "USP balk actief",
+            "name": "usp_actief",
+            "type": "true_false",
+            "instructions": "Zet de roterende USP's in de topbalk aan of uit.",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Aan",
+            "ui_off_text": "Uit"
+        },
+        {
+            "key": "field_options_usps",
+            "label": "USP's",
+            "name": "usps",
+            "type": "repeater",
+            "instructions": "Voeg USP's toe die om de 5 seconden wisselen in de topbalk.",
+            "layout": "table",
+            "button_label": "USP toevoegen",
+            "min": 1,
+            "max": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_options_usp_actief",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "sub_fields": [
+                {
+                    "key": "field_options_usp_tekst",
+                    "label": "Tekst",
+                    "name": "usp_tekst",
+                    "type": "text",
+                    "required": 1,
+                    "placeholder": "Hoogwaardige kunststof kozijnen"
+                }
+            ]
         }
     ],
     "location": [
@@ -37,12 +71,8 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "display_title": "",
-    "allow_ai_access": false,
-    "ai_description": "",
-    "modified": 1781525374
+    "modified": 1750100000
 }
