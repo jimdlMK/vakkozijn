@@ -9,14 +9,20 @@
         margin: 0 auto;
     }
 
-    // ─── Gegevens wrapper (titel + adres + acties) ────────────────────────────
+    // ─── Gegevens wrapper: 2-kolom grid (links: titel+acties, rechts: adresblok)
     &__gegevens-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        max-width: 480px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "titel    gegevens"
+            "acties   gegevens";
+        gap: 24px 60px;
+        align-items: start;
     }
+
+    &__titel        { grid-area: titel; }
+    &__gegevens     { grid-area: gegevens; }
+    &__actions      { grid-area: acties; }
 
     &__titel {
         font-family: $font-family-heading;
@@ -142,7 +148,11 @@
         }
 
         &__gegevens-wrapper {
-            max-width: 100%;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "titel"
+                "gegevens"
+                "acties";
         }
     }
 }

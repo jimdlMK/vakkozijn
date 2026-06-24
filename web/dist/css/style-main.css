@@ -1451,11 +1451,20 @@ a.white:hover::before {
   margin: 0 auto;
 }
 .mk-contact-info-block__gegevens-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  max-width: 480px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "titel    gegevens" "acties   gegevens";
+  gap: 24px 60px;
+  align-items: start;
+}
+.mk-contact-info-block__titel {
+  grid-area: titel;
+}
+.mk-contact-info-block__gegevens {
+  grid-area: gegevens;
+}
+.mk-contact-info-block__actions {
+  grid-area: acties;
 }
 .mk-contact-info-block__titel {
   font-family: Termina, sans-serif;
@@ -1558,7 +1567,8 @@ a.white:hover::before {
     justify-content: space-between;
   }
   .mk-contact-info-block__gegevens-wrapper {
-    max-width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-areas: "titel" "gegevens" "acties";
   }
 }
 
