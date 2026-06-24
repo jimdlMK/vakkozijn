@@ -1,5 +1,5 @@
 <?php
-$per_page = (int) ( get_field('pa_per_pagina') ?: 4 );
+$per_page = (int) ( get_field('pa_per_pagina') ?: 12 );
 $paged    = max( 1, get_query_var('paged') ?: get_query_var('page') );
 $img_uri  = get_stylesheet_directory_uri() . '/dist/images';
 
