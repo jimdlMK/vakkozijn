@@ -62,7 +62,7 @@ add_action( 'wp_enqueue_scripts', function() {
         'url'   => admin_url( 'admin-ajax.php' ),
         'nonce' => wp_create_nonce( 'mk_filter_projecten' ),
     ]);
-});
+}, 20 );
 
 // ─── Breadcrumbs ──────────────────────────────────────────────────────────────
 function mk_breadcrumbs() {
